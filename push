@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -r public/*
+hugo
+rsync -rz --delete --force public/ admin@perep.ru:/share/Web/academic

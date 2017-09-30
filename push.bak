@@ -1,0 +1,17 @@
+#!/bin/sh
+
+GD="-C ./public/"
+MSG="${1:-none}"
+
+mv public public2
+mkdir public
+mv public2/.git public/.git
+rm -rf public2
+
+hugo
+
+git $GD add -A
+git $GD commit -m "$MSG"
+#git $GD status
+git $GD push
+#git $GD status

@@ -1,0 +1,57 @@
+baseurl = "http://a.perep.ru/"
+theme = "blackburn"
+title = ""
+languageCode = "ru-ru"
+author = "Александр Перепечко"
+canonifyurls = true
+paginate = 10 
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  # Shown in the home page
+   subtitle = "Look left"
+  # brand = "none"
+
+[menu]
+  # Shown in the side menu.
+   [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 0
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Ind-groups"
+    pre = "<i class='fa fa-list-ul fa-fw'></i>"
+    weight = 0
+    identifier = "ind"
+    url = "/ind/"
+#  [[menu.main]]
+#    name = "Posts"
+#    pre = "<i class='fa fa-list fa-fw'></i>"
+#    weight = 1
+#    identifier = "post"
+#    url = "/post/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 2
+    identifier = "about"
+    url = "/about/"
+#  [[menu.main]]
+#    name = "Contact"
+#    pre = "<i class='fa fa-phone fa-fw'></i>"
+#    weight = 3
+#    url = "/совсем" 
+
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+  # twitter = "kotokel"
+  # email = "a@perep.ru"
+  vk = "perepeal"
+  facebook = "perepechko"
+  researchgate = "Alexander_Perepechko"
