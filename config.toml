@@ -1,4 +1,4 @@
-baseurl = "http://a.perep.ru/"
+baseurl = "http://aperep.netlify.com/"
 theme = "blackburn"
 title = ""
 languageCode = "ru-ru"
