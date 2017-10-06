@@ -69,7 +69,7 @@
 				for (let iy = 0; iy < ynum; iy++) {
 				  this.vertices.push(func( u(ix), v(iy) ));
 				  this.u.push(u(ix));
-				  this.v.push(v(ix));
+				  this.v.push(v(iy));
 					push_square(ix, iy);
 				}
 				
@@ -85,7 +85,7 @@
   }
 
   color(v) {
-     let colorfunc = (u, v) => u;
+     let colorfunc = (u, v) => u-v;
      return colorfunc (this.u[v.index], this.v[v.index]);
   }
 }
