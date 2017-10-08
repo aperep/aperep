@@ -12,17 +12,17 @@
 
    <div class="functions">
     <div> 
-      <span id="paramx"> x(u, v) = ( 2+cos(u))*cos(v)</span> <br/>
-      <span id="paramy">y(u,v) = 2+cos(u))*sin(v)</span> <br/>
-      <span id="paramz">  z(u, v) = sin(u) </span>
+      <span id="paramx"> x = ( 2+cos(u))*cos(v)</span> <br/>
+      <span id="paramy">y = 2+cos(u))*sin(v)</span> <br/>
+      <span id="paramz">  z = sin(u) </span>
     </div>
     <textarea id="terminal" name="terminal" rows="6" cols="80" style="width:100%;margin-bottom:-5px;">
-jacobian(u, v) = [ d(x(u, v), [u,v]), d(y(u, v), [u,v]), d(z(u, v), [u,v]) ]
-q(u, v) = jacobian(u, v)[1][1]
-f(u,v) = d(q(u,v), u)</textarea>
-   <div> f(u, v)=  <span id="colorfunc"> u+v </span> </div>
-    <input name="execute" value="Вычислить f - функцию цвета" onclick="execute();" type="button"> 
-    <input name="execute" value="перекрасить поверхность" onclick="updatePlot();" type="button"> 
+jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ]
+q = jacobian[1][1]
+f = d(q, u)</textarea>
+   <div> f=  <span id="colorfunc"> u+v </span> </div>
+    <input name="execute" value="Пересчитать f (функцию цвета)" onclick="execute();" type="button"> 
+    <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
    </div>
     
     
@@ -56,8 +56,8 @@ f(u,v) = d(q(u,v), u)</textarea>
             Algebrite.run($('#paramz').html())
             result = Algebrite.run(textToBeExecuted);
           }
-          //alert(result);
-          $('#colorfunc').html(Algebrite.run('f(u, v)'))
+          console.log(result);
+          $('#colorfunc').html(Algebrite.run('f'))
         }
         catch (err) {
           var errDesc = err;
@@ -80,7 +80,7 @@ f(u,v) = d(q(u,v), u)</textarea>
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script>
-  var colorfunc = (u, v) => (Math.cos(u)*Math.sin(v))/1;
+  var colorfunc = (f, u, v) => { return parseFloat(Algebrite.run(`subst(${v},v,subst(${u},u,${f}))`));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
 
 	class Surface {
   
@@ -131,7 +131,8 @@ f(u,v) = d(q(u,v), u)</textarea>
   }
 
   color(v) {
-     return colorfunc (this.u[v.index], this.v[v.index]);
+ 		 let f = $('#colorfunc').html(); 
+     return colorfunc (f, this.u[v.index], this.v[v.index]);
   }
 }
 var s;
