@@ -9,10 +9,27 @@
 </head>
 
 <body>
+
+   <div class="functions">
+    <div> 
+      <span id="paramx"> x(u, v) = ( 2+cos(u))*cos(v)</span> <br/>
+      <span id="paramy">y(u,v) = 2+cos(u))*sin(v)</span> <br/>
+      <span id="paramz">  z(u, v) = sin(u) </span>
+    </div>
+    <textarea id="terminal" name="terminal" rows="6" cols="80" style="width:100%;margin-bottom:-5px;">
+jacobian(u, v) = [ d(x(u, v), [u,v]), d(y(u, v), [u,v]), d(z(u, v), [u,v]) ]
+q(u, v) = jacobian(u, v)[1][1]
+f(u,v) = d(q(u,v), u)</textarea>
+   <div> f(u, v)=  <span id="colorfunc"> u+v </span> </div>
+    <input name="execute" value="Вычислить f - функцию цвета" onclick="execute();" type="button"> 
+    <input name="execute" value="перекрасить поверхность" onclick="redraw();" type="button"> 
+   </div>
+    
+    
 	<div id="info">
 		<input type="file" id="fileInput" style="visibility:hidden">
 	</div>
-	<div id="info">
+	<div id="info"  style="visibility:hidden">
 		<h2>Discrete Curvatures and Normals</h2>
 		<div id="meta">Loading...</div>
 	</div>
@@ -21,6 +38,33 @@
 			<img src="../imgs/logo.png" width="80" height="80" border="0">
 		</a>
 	</div>
+
+<script src="../algebrite/jquery.min.js"></script>
+<script src="../algebrite/algebrite.bundle-for-browser.js"></script>
+
+	<script type="text/javascript">//&#x25B6;
+	    function execute () {
+        try {
+          var textToBeExecuted = $('#terminal').val();
+          var result;
+          if (/Algebrite\.[a-z]/.test(textToBeExecuted) || /;[ \t]*$/.test(textToBeExecuted)) {
+            result = eval(textToBeExecuted);
+          }
+          else {
+            Algebrite.run($('#paramx').html())
+            Algebrite.run($('#paramy').html())
+            Algebrite.run($('#paramz').html())
+            result = Algebrite.run(textToBeExecuted);
+          }
+          //alert(result);
+          $('#colorfunc').html(Algebrite.run('f(u, v)'))
+        }
+        catch (err) {
+          var errDesc = err;
+          $('#colorfunc').html('<h4>Error!<\/h4><code>' + errDesc + '<\/code>')
+        }
+    }    
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
 	<script src="../libs/detector.js"></script>
@@ -151,7 +195,7 @@ var s;
 			document.body.appendChild(container);
 
 			initRenderer(container);
-			initGUI();
+			//initGUI();
 			initCamera();
 			initScene();
 			initLights();
