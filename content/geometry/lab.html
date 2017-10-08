@@ -36,16 +36,18 @@
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script>
+  var colorfunc = (u, v) => (Math.cos(u)*Math.sin(v))/1;
+
 	class Surface {
   
   constructor(func, xmin, xmax, xnum, ymin, ymax, ynum) {
     if (func == undefined) {
       var xmin = 0;
       var xmax = 2*Math.PI;
-      var xnum = 20;
+      var xnum = 50;
       var ymin = 0;
       var ymax = 2*Math.PI;
-      var ynum = 20;
+      var ynum = 50;
       var func = (u,v) => new Vector((2+Math.cos(u))*Math.cos(v),(2+Math.cos(u))*Math.sin(v), Math.sin(u));
     }
 		this.vertices = [];
@@ -85,7 +87,6 @@
   }
 
   color(v) {
-     let colorfunc = (u, v) => u-v;
      return colorfunc (this.u[v.index], this.v[v.index]);
   }
 }
@@ -136,7 +137,7 @@ var s;
 					"f": indices
 				}));
 			},
-			"Plot": "Shaded",
+			"Plot": "colorfunc",
 			"Normals": "Equally Weighted",
 			"Show Normals": showNormals,
 			"Show Wireframe": showWireframe
