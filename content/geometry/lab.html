@@ -80,7 +80,11 @@ f = d(q, u)</textarea>
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script>
-  var colorfunc = (f, u, v) => { return parseFloat(Algebrite.run(`subst(${v},v,subst(${u},u,${f}))`));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
+  var colorfunc = (f, u, v) => { 
+  let fu = f.replace("u", u.toString());
+  let fuv = fu.replace("v", v.toString());
+  //console.log(fuv);
+  return parseFloat(Algebrite.run(fuv));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
 
 	class Surface {
   
@@ -88,10 +92,10 @@ f = d(q, u)</textarea>
     if (func == undefined) {
       var xmin = 0;
       var xmax = 2*Math.PI;
-      var xnum = 50;
+      var xnum = 30;
       var ymin = 0;
       var ymax = 2*Math.PI;
-      var ynum = 50;
+      var ynum = 30;
       var func = (u,v) => new Vector((2+Math.cos(u))*Math.cos(v),(2+Math.cos(u))*Math.sin(v), Math.sin(u));
     }
 		this.vertices = [];
