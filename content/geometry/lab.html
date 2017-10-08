@@ -22,7 +22,7 @@ q(u, v) = jacobian(u, v)[1][1]
 f(u,v) = d(q(u,v), u)</textarea>
    <div> f(u, v)=  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Вычислить f - функцию цвета" onclick="execute();" type="button"> 
-    <input name="execute" value="перекрасить поверхность" onclick="redraw();" type="button"> 
+    <input name="execute" value="перекрасить поверхность" onclick="updatePlot("colorfunc");" type="button"> 
    </div>
     
     
