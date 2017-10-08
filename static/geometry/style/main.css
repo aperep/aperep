@@ -33,6 +33,9 @@ body {
 #functions {
   width:49%; 
   float:left; 
-  clear:both; 
   margin:10px;
+}
+
+#container {
+  float:right;
 }

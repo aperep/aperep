@@ -10,7 +10,7 @@
 
 <body>
 
-   <div class="functions">
+   <div id="functions">
     <div> 
       <span id="paramx"> x = ( 2+cos(u))*cos(v)</span> <br/>
       <span id="paramy">y = 2+cos(u))*sin(v)</span> <br/>
@@ -21,7 +21,7 @@ jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ]
 q = jacobian[1][1]
 f = d(q, u)</textarea>
    <div> f=  <span id="colorfunc"> u+v </span> </div>
-    <input name="execute" value="Пересчитать f (функцию цвета)" onclick="execute();" type="button"> 
+    <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
     <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
    </div>
     
@@ -81,10 +81,10 @@ f = d(q, u)</textarea>
 	<script src="../utils/colormap.js"></script>
 	<script>
   var colorfunc = (f, u, v) => { 
-  let fu = f.replace("u", u.toString());
-  let fuv = fu.replace("v", v.toString());
+  let fu = f.replace(/\bu\b/g, u.toString());
+  let fuv = fu.replace(/\bv\b/g, v.toString());
   //console.log(fuv);
-  return parseFloat(Algebrite.run(fuv));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
+  return parseFloat(Algebrite.float(fuv));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
 
 	class Surface {
   
@@ -186,7 +186,7 @@ var s;
 					"f": indices
 				}));
 			},
-			"Plot": "colorfunc",
+			"Plot": "Shaded",
 			"Normals": "Equally Weighted",
 			"Show Normals": showNormals,
 			"Show Wireframe": showWireframe
@@ -197,6 +197,7 @@ var s;
 
 		function init() {
 			let container = document.createElement("div");
+			container.id="container";
 			document.body.appendChild(container);
 
 			initRenderer(container);
