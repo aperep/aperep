@@ -4,13 +4,16 @@ body {
 	overflow: hidden;
 }
 
-
+.hidden {
+  display: none;
+}
 
 #info {
 	position: absolute;
 	top: 10px;
 	width: 100%;
 	text-align: center;
+	display: none;
 }
 
 #meta {

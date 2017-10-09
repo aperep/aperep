@@ -13,10 +13,12 @@
   <select onchange="load_students()" id="group">
     <option value="---">Группа</option>
     <option value="595">595</option>
+    <option value="599">599</option>
   </select>
   <select onchange="load_task()" id="surname" disabled>
     <option value="---">Фамилия Имя</option>
   </select>
+    <input name="hide_task" value="Спрятать задание" onclick="toggleTask();" type="button"> 
   </div>
 
    <div id="functions">
@@ -32,6 +34,10 @@ f = d(q, u)</textarea>
    <div> f=  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
     <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
+   </div>
+    
+   <div id="explanation">
+   <h3> Здесь будет задание.</h3>
    </div>
     
     
@@ -66,7 +72,32 @@ var students = {595:["Воробьев Даниил",
 "Рубаненко Евгений",
 "Сигарева Ирина",
 "Смирнова Елена",
-"Шаруев Дмитрий"]}
+"Шаруев Дмитрий"],
+599:["Богданов Семён",
+"Васильчишин Сергей",
+"Гребенщикова Елизавета",
+"Козлов Александр",
+"Куприянов Артём",
+"Левашев Владислав",
+"Лернер Регина",
+"Марков Александр",
+"Мартинсон Михаил",
+"Муравьёв Кирилл",
+"Нарсия Давид",
+"Нифантова Ирина",
+"Пыркин Дмитрий",
+"Ремизова Анастасия",
+"Сергунин Андрей",
+"Степанов Илья",
+"Топильский Артём",
+"Якушева Софья"]
+}
+
+	 function toggleTask() {	 
+      $('#explanation').toggleClass('hidden');
+      $('#functions').toggleClass('hidden');
+      $('#students input').val($('#explanation').hasClass('hidden') ? "Показать задание" :"Спрятать задание");
+	 }
 
 	 function load_students() {	 
 	 var surnameList = $('#surname');
@@ -88,6 +119,18 @@ var students = {595:["Воробьев Даниил",
     surnameList.prop( "disabled", false );
 	 }
 	
+	function hashCode(str) {
+  return str.split('').reduce((prevHash, currVal) =>
+    ((prevHash << 5) - prevHash) + currVal.charCodeAt(0), 0);
+  }
+
+	 function load_task() {	 
+	 let hashstring = $('#group option:selected').html()+ $('#surname option:selected').html();
+	 let hash = hashCode(hashstring);
+	 surface_num = (hash >> 6) % 10;
+	 colorfunc_num = (hash % 64) % 10;
+	 console.log(hashstring + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
+	 }
 	</script>
 
 <script src="../algebrite/jquery.min.js"></script>
