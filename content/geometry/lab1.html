@@ -31,7 +31,7 @@
 jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ]
 q = jacobian[1][1]
 f = d(q, u)</textarea>
-   <div> f=  <span id="colorfunc"> u+v </span> </div>
+   <div style="max-height: 200px; overflow:auto;"> f=  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
     <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
    </div>
@@ -127,7 +127,7 @@ var students = {595:[
   }
 
 	 function load_task() {	 
-	 let hashstring = $('#group option:selected').html()+ $('#surname option:selected').html();
+	 let hashstring =  $('#surname option:selected').html();
 	 let hash = hashCode(hashstring);
 	 surface_num = Math.abs((hash >> 6) % surfaces.length);
 	 colorfunc_num = (hash % 64) % 10;
