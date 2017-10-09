@@ -18,10 +18,10 @@
   <select onchange="load_task()" id="surname" disabled>
     <option value="---">Фамилия Имя</option>
   </select>
-    <input name="hide_task" value="Спрятать задание" onclick="toggleTask();" type="button"> 
+    <input name="hide_task" value="Показать задание" onclick="toggleTask();" type="button"> 
   </div>
 
-   <div id="functions">
+   <div id="functions" class="hidden">
     <div> 
       <span id="paramx"> x = ( 2+cos(u))*cos(v)</span> <br/>
       <span id="paramy"> y = ( 2+cos(u))*sin(v)</span> <br/>
@@ -36,7 +36,7 @@ f = d(q, u)</textarea>
     <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
    </div>
     
-   <div id="explanation">
+   <div id="explanation" class="hidden">
    <h3> Здесь будет задание.</h3>
    </div>
     
