@@ -9,6 +9,15 @@
 </head>
 
 <body>
+  <div id="students">
+  <select onchange="load_students()" id="group">
+    <option value="---">Группа</option>
+    <option value="595">595</option>
+  </select>
+  <select onchange="load_task()" id="surname" disabled>
+    <option value="---">Фамилия Имя</option>
+  </select>
+  </div>
 
    <div id="functions">
     <div> 
@@ -38,6 +47,48 @@ f = d(q, u)</textarea>
 			<img src="../imgs/logo.png" width="80" height="80" border="0">
 		</a>
 	</div>
+	
+	
+	<script type="text/javascript">
+	
+var students = {595:["Воробьев Даниил",
+"Егоров Евгений",
+"Жернов Андрей",
+"Исламов Искандер",
+"Козлова Надежда",
+"Комаров Михаил",
+"Крохалев Арсений",
+"Литвинов Станислав",
+"Машурин Владислав",
+"Мингалиев Наиль",
+"Моисеев Федор",
+"Поконечный Эдуард",
+"Рубаненко Евгений",
+"Сигарева Ирина",
+"Смирнова Елена",
+"Шаруев Дмитрий"]}
+
+	 function load_students() {	 
+	 var surnameList = $('#surname');
+	 surnameList.children().each(function() {if (this.value != '---') this.remove();});
+	 //surnameList.append(firstentry);
+	 
+	 let group = $("#group option:selected").html();
+	 if (group== 'Группа') {
+    surnameList.prop( "disabled", true );
+	  return;
+	 }
+	 
+   $.each(students[group], function(i,v)
+    {
+    var li = $('<option></option>').html(v).attr('value', v)
+    //console.log(li.html());
+        li.appendTo(surnameList);
+    });
+    surnameList.prop( "disabled", false );
+	 }
+	
+	</script>
 
 <script src="../algebrite/jquery.min.js"></script>
 <script src="../algebrite/algebrite.bundle-for-browser.js"></script>
