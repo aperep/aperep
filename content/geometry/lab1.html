@@ -32,7 +32,7 @@
       <span id="paramz"> z = sin(u) </span>
     </div>
     <textarea id="terminal" name="terminal" rows="6" cols="80" style="width:100%;margin-bottom:-5px;">
-# пример задания функции:
+# пример задания функции, раскрашивающей поверхность:
 jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ]
 q = jacobian[1][1]
 f = d(q, u)</textarea>
@@ -42,7 +42,12 @@ f = d(q, u)</textarea>
    </div>
     
    <div id="explanation" class="hidden">
-   <h3> Здесь будет задание.</h3>
+   <h2> Ваша задача.</h2>
+   Поверхность r(u,v)=(x,y,z) задана формулами слева. <br/>
+   Вам требуется найти функцию f, равную <span id="task-func">(здесь будет задание)</span>
+   в данной точке. <br/>
+   Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a>, список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>. Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. <br/>
+   По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо ко мне на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
    </div>
     
     
@@ -62,6 +67,11 @@ f = d(q, u)</textarea>
 	
 	<script type="text/javascript">
 	
+var tasks = [
+"гауссовой кривизне",
+"минимуму нормальной кривизны",
+]	
+
 var students = {595:[
 "Воробьев Даниил",
 "Егоров Евгений",
@@ -199,7 +209,8 @@ var students = {595:[
 	 let hashstring =  $('#surname option:selected').html();
 	 let hash = hashCode(hashstring);
 	 surface_num = Math.abs((hash >> 6) % surfaces.length);
-	 colorfunc_num = (hash % 64) % 10;
+	 colorfunc_num = (hash % 64) % tasks.length;
+	 $('#task-func').text(tasks['colorfunc_num']);
 	 console.log(hashstring + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
 	 $("input[name='hide_task']").prop( "disabled", false );
 	 $('#paramx').html('x = '+ surfaces[surface_num]['x']);
@@ -853,7 +864,7 @@ var s;
 
 		function onWindowResize() {
 			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatriu();
+			camera.updateProjectionMatrix();
 
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			controls.handleResize();
