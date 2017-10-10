@@ -29,6 +29,12 @@ paginate = 10
     weight = 0
     identifier = "ind"
     url = "/ind/"
+  [[menu.main]]
+    name = "MIPT Teaching"
+    pre = "<i class='fa fa-list-ul fa-fw'></i>"
+    weight = 0
+    identifier = "mipt"
+    url = "/mipt/"
 #  [[menu.main]]
 #    name = "Posts"
 #    pre = "<i class='fa fa-list fa-fw'></i>"

@@ -9,16 +9,20 @@
 </head>
 
 <body>
-  <div id="students">
+  <div id="students" style="margin: 5pt;">
+  Выберите своё задание:
   <select onchange="load_students()" id="group">
     <option value="---">Группа</option>
-    <option value="595">595</option>
+    <option value="595">594</option>
+    <option value="599">595</option>
+    <option value="599">596</option>
+    <option value="595">597</option>
     <option value="599">599</option>
   </select>
   <select onchange="load_task()" id="surname" disabled>
     <option value="---">Фамилия Имя</option>
   </select>
-    <input name="hide_task" value="Показать задание" onclick="toggleTask();" type="button"> 
+    <input name="hide_task" value="Показать задание" onclick="toggleTask();" type="button" disabled> 
   </div>
 
    <div id="functions" class="hidden">
@@ -28,6 +32,7 @@
       <span id="paramz"> z = sin(u) </span>
     </div>
     <textarea id="terminal" name="terminal" rows="6" cols="80" style="width:100%;margin-bottom:-5px;">
+# пример задания функции:
 jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ]
 q = jacobian[1][1]
 f = d(q, u)</textarea>
@@ -61,6 +66,7 @@ var students = {595:[
 "Воробьев Даниил",
 "Егоров Евгений",
 "Жернов Андрей",
+"Исканов Эмиль",
 "Исламов Искандер",
 "Козлова Надежда",
 "Комаров Михаил",
@@ -73,10 +79,11 @@ var students = {595:[
 "Рубаненко Евгений",
 "Сигарева Ирина",
 "Смирнова Елена",
-"Шаруев Дмитрий"
+"Шаруев Дмитрий",
 ],599:[
 "Богданов Семён",
 "Васильчишин Сергей",
+"Воробьева Екатерина",
 "Гребенщикова Елизавета",
 "Козлов Александр",
 "Куприянов Артём",
@@ -86,13 +93,75 @@ var students = {595:[
 "Мартинсон Михаил",
 "Муравьёв Кирилл",
 "Нарсия Давид",
+"Немычникова Валерия",
 "Нифантова Ирина",
 "Пыркин Дмитрий",
 "Ремизова Анастасия",
 "Сергунин Андрей",
 "Степанов Илья",
 "Топильский Артём",
-"Якушева Софья"
+"Якушева Софья",
+],594:[
+"Белых Евгений",
+"Васильев Александр",
+"Вишнякова Нина",
+"Герасимов Артём",
+"Гусарова Дарья",
+"Захаркин Илья",
+"Зуева Надежда",
+"Калиниченко Ольга",
+"Кириленко Елена",
+"Манучарян Вардан",
+"Мурзин Дмитрий",
+"Новиков Игорь",
+"Петров Филипп",
+"Поповкин Андрей",
+"Проскурин Александр",
+"Романенко Илья",
+"Спирин Ярослав",
+"Турумтаев Галим",
+"Ференец Александр",
+"Шахрай Владислав",
+"Шевкунов Кирилл",
+],596:[
+"Анухин Михаил",
+"Глебов Даниил",
+"Гришутин Александр",
+"Киреев Карим",
+"Козлов Анатолий",
+"Колодзей Дарья",
+"Кочуков Максим",
+"Крылов Григорий",
+"Насретдинов Искандер",
+"Невструев Владислав",
+"Нифантова Ирина",
+"Носарева Мария",
+"Плахтинский Вадим",
+"Родин Дмитрий",
+"Свердлов Альберт",
+"Широкова Любовь",
+"Шлыков Евгений",
+],597:[
+"Бородин Максим",
+"Быстров Алексей",
+"Винокуров Сергей",
+"Гришкин Максим",
+"Дмитриева Ирина",
+"Ефимочкин Сергей",
+"Зуев Степан",
+"Иванова Юлия",
+"Ишханян Семён",
+"Касимова Надежда",
+"Климчук Анна",
+"Кравец Алёна",
+"Миллер Владимир",
+"Проскурина Ксения",
+"Рейдман Павел",
+"Серебряков Артем",
+"Степанова Юлия",
+"Ткаченко Дмитрий",
+"Ульянин Дмитрий",
+"Фаттахетдинов Ильдар",
 ]}
 
 	 function toggleTask() {	 
@@ -132,6 +201,7 @@ var students = {595:[
 	 surface_num = Math.abs((hash >> 6) % surfaces.length);
 	 colorfunc_num = (hash % 64) % 10;
 	 console.log(hashstring + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
+	 $("input[name='hide_task']").prop( "disabled", false );
 	 $('#paramx').html('x = '+ surfaces[surface_num]['x']);
 	 $('#paramy').html('y = '+ surfaces[surface_num]['y']);
 	 $('#paramz').html('z = '+ surfaces[surface_num]['z']);
@@ -366,16 +436,16 @@ var surfaces = [{ // from K3DSurf
        vnum : 50,
        name : 'crosscap',
 },{
-       x : "cos(u)*(4*sqrt(1-v^2)*sin(abs(u))^abs(u))",
-       y : "v",
-       z : "sin(u) *(4*sqrt(1-v^2)*sin(abs(u))^abs(u))",
-       umin : -Math.PI,
-       umax : Math.PI,
+       x : "cos(u)*cos(v)*sin(u)",
+       y : "sin(u)*sin(v)*sin(u)",
+       z : "cos(u)*sin(v)*cos(u)",
+       umin : -Math.PI/2,
+       umax : 0,
        unum : 50,
-       vmin : -1,
-       vmax : 1,
+       vmin : 0,
+       vmax : 2*Math.PI,
        vnum : 50,
-       name : 'heart',
+       name : 'sphere_8',
 },]
 
 	class Surface {
@@ -500,7 +570,7 @@ var s;
 			initCamera();
 			initScene();
 			initLights();
-			initMesh();
+			//initMesh();
 			initControls();
 			addEventListeners();
 		}
