@@ -48,8 +48,13 @@ f = d(q, u)</textarea>
    в данной точке. <br/>
    Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a>, список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>. Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. <br/>
    По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо ко мне на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
-   <form id="contact-form" action="//formspree.io/your@email.com" method="post">
-	 <textarea name="comment" cols="10" rows="2" placeholder="Комментарий"></textarea>
+   <form id="contact-form" action="https://formspree.io/perepeal+mipt-lab@gmail.com" method="POST">
+	 <input type="hidden" name="Группа"  value="---">
+	 <input type="hidden" name="ФамилияИмя"  value="---">
+	 <input type="hidden" name="Задание"  value="---">
+	 <input type="hidden" name="Функция"  value="---">
+	 <input type="hidden" name="Решение"  value="---">
+	 <input type="text" name="Комментарий"  value="">
  	 <input class="submit" type="submit" value="Отправить решение.">
    </form>
    </div>
@@ -74,7 +79,7 @@ f = d(q, u)</textarea>
 var tasks = [
 "гауссовой кривизне",
 "минимуму нормальной кривизны",
-]	
+];
 
 var students = {595:[
 "Воробьев Даниил",
@@ -178,6 +183,10 @@ var students = {595:[
 "Фаттахетдинов Ильдар",
 ]}
 
+   function set_input(name, value) {
+	 $("input[name='"+name+"']").val(value);   
+   }
+   
 	 function toggleTask() {	 
       $('#explanation').toggleClass('hidden');
       $('#functions').toggleClass('hidden');
@@ -190,6 +199,7 @@ var students = {595:[
 	 //surnameList.append(firstentry);
 	 
 	 let group = $("#group option:selected").html();
+	 set_input("Группа", group);
 	 if (group== 'Группа') {
     surnameList.prop( "disabled", true );
 	  return;
@@ -210,12 +220,15 @@ var students = {595:[
   }
 
 	 function load_task() {	 
-	 let hashstring =  $('#surname option:selected').html();
-	 let hash = hashCode(hashstring);
+	 let surname =  $('#surname option:selected').html();
+	 set_input("ФамилияИмя", surname);
+	 let hash = hashCode(surname);
 	 surface_num = Math.abs((hash >> 6) % surfaces.length);
 	 colorfunc_num = (hash % 64) % tasks.length;
-	 $('#task-func').text(tasks['colorfunc_num']);
-	 console.log(hashstring + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
+	 //console.log(tasks[colorfunc_num], colorfunc_num, tasks.length);
+	 $("#task-func").html(tasks[colorfunc_num]);
+	 set_input("Задание", $('#task-func').html());
+	 console.log(surname + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
 	 $("input[name='hide_task']").prop( "disabled", false );
 	 $('#paramx').html('x = '+ surfaces[surface_num]['x']);
 	 $('#paramy').html('y = '+ surfaces[surface_num]['y']);
@@ -243,10 +256,12 @@ var students = {595:[
           }
           console.log(result);
           $('#colorfunc').html(Algebrite.run('f'));
+        	 set_input("Функция", $('#colorfunc').html());
+        	 set_input("Решение", $('#terminal').html());
         }
         catch (err) {
           var errDesc = err;
-          $('#colorfunc').html('<h4>Error!<\/h4><code>' + errDesc + '<\/code>')
+          $('#colorfunc').html('<h4>Ошибка!<\/h4><code>' + errDesc + '<\/code>')
         }
     }    
 	</script>
@@ -265,7 +280,6 @@ var students = {595:[
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script src="../parser.js"></script>
-	<script src="../formspree.js"></script>
 	<script>
   var colorfunc = (f, u, v) => { 
   let fu = f.replace(/\bu\b/g, '('+u.toString()+')');
