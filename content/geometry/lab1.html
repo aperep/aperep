@@ -39,15 +39,6 @@ f = d(q, u)</textarea>
    <div style="max-height: 200px; overflow:auto;"> f=  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
     <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
-   </div>
-    
-   <div id="explanation" class="hidden">
-   <h2> Ваша задача.</h2>
-   Поверхность r(u,v)=(x,y,z) задана формулами слева. <br/>
-   Вам требуется найти функцию f, равную <span id="task-func">(здесь будет задание)</span>
-   в данной точке. <br/>
-   Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a>, список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>. Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. <br/>
-   По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо ко мне на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
    <form id="contact-form" action="https://formspree.io/perepeal+mipt-lab@gmail.com" method="POST">
 	 <input type="hidden" name="Группа"  value="---" />
 	 <input type="hidden" name="ФамилияИмя"  value="---" />
@@ -55,9 +46,21 @@ f = d(q, u)</textarea>
 	 <input type="hidden" name="Функция"  value="---" />
 	 <input type="hidden" name="Решение"  value="---" />
    <input type="hidden" name="_language" value="ru" />
-	 <input type="text" name="Комментарий"  value="" />
+	 <input type="text" name="Комментарий"  value="Поле для комментариев" />
  	 <input class="submit" type="submit" value="Отправить решение." />
    </form>
+   </div>
+    
+   <div id="explanation" class="hidden">
+   <h2> Ваша задача.</h2>
+   Поверхность r(u,v)=(x,y,z) задана формулами слева. <br/>
+   Вам требуется найти функцию f, равную <span id="task-func">(здесь будет задание)</span>
+   в данной точке. <br/>
+   Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a> (список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>)
+	   либо найдите формулу функции f в удобной Вам системе компьютерной алгебры, введите её в формате Algebrite и вставьте код Вашего вычисления
+	   в поле комментария с указанием использованной системы. 
+	   Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. <br/>
+   По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо ко мне на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
    </div>
     
     
