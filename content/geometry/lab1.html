@@ -48,6 +48,10 @@ f = d(q, u)</textarea>
    в данной точке. <br/>
    Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a>, список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>. Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. <br/>
    По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо ко мне на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
+   <form id="contact-form" action="//formspree.io/your@email.com" method="post">
+	 <textarea name="comment" cols="10" rows="2" placeholder="Комментарий"></textarea>
+ 	 <input class="submit" type="submit" value="Отправить решение.">
+   </form>
    </div>
     
     
@@ -261,6 +265,7 @@ var students = {595:[
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script src="../parser.js"></script>
+	<script src="../formspree.js"></script>
 	<script>
   var colorfunc = (f, u, v) => { 
   let fu = f.replace(/\bu\b/g, '('+u.toString()+')');
