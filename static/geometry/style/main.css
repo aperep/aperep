@@ -38,8 +38,14 @@ body {
 
 
 #functions {
-  width:49%; 
+  width:47%; 
   float:left; 
+  margin:10px;
+}
+
+#explanation {
+  width:47%; 
+  float: left;
   margin:10px;
 }
 
