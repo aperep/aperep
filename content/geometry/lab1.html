@@ -6,6 +6,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" href="../style/main.css">
+	
+	<script src="../students.js"></script>
+	<script src="../lab1.js"></script>
+	<script src="../surfaces.js"></script>
+
 </head>
 
 <body>
@@ -46,8 +51,9 @@ f = d(q, u)</textarea>
 	 <input type="hidden" name="Функция"  value="---" />
 	 <input type="hidden" name="Решение"  value="---" />
    <input type="hidden" name="_language" value="ru" />
-	 <input type="text" name="Комментарий"  value="Поле для комментариев" />
- 	 <input class="submit" type="submit" value="Отправить решение." />
+	 <textarea cols="80" rows="2" type="text" placeholder="Поле для комментариев" name="Комментарий" style="margin-top:5pt;"></textarea>
+	 <br/>
+ 	 <input class="submit" type="submit" value="Отправить решение" />
    </form>
    </div>
     
@@ -57,9 +63,14 @@ f = d(q, u)</textarea>
    Вам требуется найти функцию f, равную <span id="task-func">(здесь будет задание)</span>
    в данной точке. <br/>
    Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a> (список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>)
-	   либо найдите формулу функции f в удобной Вам системе компьютерной алгебры, введите её в формате Algebrite и вставьте код Вашего вычисления
-	   в поле комментария с указанием использованной системы. 
-	   Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. <br/>
+	   либо
+	   <ol>
+	   <li>  найдите формулу функции f в удобной Вам системе компьютерной алгебры,</li>
+     <li>	 введите её в формате Algebrite в поле пересчёта f  </li>
+     <li>	 и вставьте код Вашего вычисления в поле комментария с указанием использованной системы.   </li>
+	   </ol>
+	     
+	   Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. 
    По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо ко мне на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
    </div>
     
@@ -78,172 +89,6 @@ f = d(q, u)</textarea>
 	</div>
 	
 	
-	<script type="text/javascript">
-	
-var tasks = [
-"гауссовой кривизне",
-"минимуму нормальной кривизны",
-"средней кривизне",
-"нормальной кривизне вдоль биссектрисы угла между главными направлениями",
-"углу (в [-π/2,π/2)) между первой координатной кривой (v=const) и главным направлением, соответствующим минимальной главной кривизне,",
-"кривизне сечения плоскостью, натянутой на векторы e<sub>1</sub> и e<sub>2</sub>+n, где (e<sub>1</sub>,e<sub>2</sub>) - канонический базис, а n - нормаль к поверхности,",
-];
-
-var students = {595:[
-"Воробьев Даниил",
-"Егоров Евгений",
-"Жернов Андрей",
-"Исканов Эмиль",
-"Исламов Искандер",
-"Козлова Надежда",
-"Комаров Михаил",
-"Крохалев Арсений",
-"Литвинов Станислав",
-"Машурин Владислав",
-"Мингалиев Наиль",
-"Моисеев Федор",
-"Поконечный Эдуард",
-"Рубаненко Евгений",
-"Сигарева Ирина",
-"Смирнова Елена",
-"Шаруев Дмитрий",
-],599:[
-"Богданов Семён",
-"Васильчишин Сергей",
-"Воробьева Екатерина",
-"Гребенщикова Елизавета",
-"Козлов Александр",
-"Куприянов Артём",
-"Левашев Владислав",
-"Лернер Регина",
-"Марков Александр",
-"Мартинсон Михаил",
-"Муравьёв Кирилл",
-"Нарсия Давид",
-"Немычникова Валерия",
-"Нифантова Ирина",
-"Пыркин Дмитрий",
-"Ремизова Анастасия",
-"Сергунин Андрей",
-"Степанов Илья",
-"Топильский Артём",
-"Якушева Софья",
-],594:[
-"Белых Евгений",
-"Васильев Александр",
-"Вишнякова Нина",
-"Герасимов Артём",
-"Гусарова Дарья",
-"Захаркин Илья",
-"Зуева Надежда",
-"Калиниченко Ольга",
-"Кириленко Елена",
-"Манучарян Вардан",
-"Мурзин Дмитрий",
-"Новиков Игорь",
-"Петров Филипп",
-"Поповкин Андрей",
-"Проскурин Александр",
-"Романенко Илья",
-"Спирин Ярослав",
-"Турумтаев Галим",
-"Ференец Александр",
-"Шахрай Владислав",
-"Шевкунов Кирилл",
-],596:[
-"Анухин Михаил",
-"Глебов Даниил",
-"Гришутин Александр",
-"Киреев Карим",
-"Козлов Анатолий",
-"Колодзей Дарья",
-"Кочуков Максим",
-"Крылов Григорий",
-"Насретдинов Искандер",
-"Невструев Владислав",
-"Нифантова Ирина",
-"Носарева Мария",
-"Плахтинский Вадим",
-"Родин Дмитрий",
-"Свердлов Альберт",
-"Широкова Любовь",
-"Шлыков Евгений",
-],597:[
-"Бородин Максим",
-"Быстров Алексей",
-"Винокуров Сергей",
-"Гришкин Максим",
-"Дмитриева Ирина",
-"Ефимочкин Сергей",
-"Зуев Степан",
-"Иванова Юлия",
-"Ишханян Семён",
-"Касимова Надежда",
-"Климчук Анна",
-"Кравец Алёна",
-"Миллер Владимир",
-"Проскурина Ксения",
-"Рейдман Павел",
-"Серебряков Артем",
-"Степанова Юлия",
-"Ткаченко Дмитрий",
-"Ульянин Дмитрий",
-"Фаттахетдинов Ильдар",
-]}
-
-   function set_input(name, value) {
-	 $("input[name='"+name+"']").val(value);   
-   }
-   
-	 function toggleTask() {	 
-      $('#explanation').toggleClass('hidden');
-      $('#functions').toggleClass('hidden');
-      $('#students input').val($('#explanation').hasClass('hidden') ? "Показать задание" :"Спрятать задание");
-	 }
-
-	 function load_students() {	 
-	 var surnameList = $('#surname');
-	 surnameList.children().each(function() {if (this.value != '---') this.remove();});
-	 //surnameList.append(firstentry);
-	 
-	 let group = $("#group option:selected").html();
-	 set_input("Группа", group);
-	 if (group== 'Группа') {
-    surnameList.prop( "disabled", true );
-	  return;
-	 }
-	 
-   $.each(students[group], function(i,v)
-    {
-    var li = $('<option></option>').html(v).attr('value', v)
-    //console.log(li.html());
-        li.appendTo(surnameList);
-    });
-    surnameList.prop( "disabled", false );
-	 }
-	
-	function hashCode(str) {
-  return Math.abs(str.split('').reduce((prevHash, currVal) =>
-    ((prevHash << 5) - prevHash) + currVal.charCodeAt(0), 0));
-  }
-
-	 function load_task() {	 
-	 let surname =  $('#surname option:selected').html();
-	 set_input("ФамилияИмя", surname);
-	 let hash = hashCode(surname);
-	 surface_num = Math.abs((hash >> 6) % surfaces.length);
-	 colorfunc_num = (hash % 64) % tasks.length;
-	 //console.log(tasks[colorfunc_num], colorfunc_num, tasks.length);
-	 $("#task-func").html(tasks[colorfunc_num]);
-	 set_input("Задание", $('#task-func').html());
-	 console.log(surname + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
-	 $("input[name='hide_task']").prop( "disabled", false );
-	 $('#paramx').html('x = '+ surfaces[surface_num]['x']);
-	 $('#paramy').html('y = '+ surfaces[surface_num]['y']);
-	 $('#paramz').html('z = '+ surfaces[surface_num]['z']);
-  	initMesh();	 
-	 }
-	</script>
 
 <script src="../algebrite/jquery.min.js"></script>
 <script src="../algebrite/algebrite.bundle-for-browser.js"></script>
@@ -289,203 +134,13 @@ var students = {595:[
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script src="../parser.js"></script>
-	<script>
+	<script type="text/javascript">
   var colorfunc = (f, u, v) => { 
   let fu = f.replace(/\bu\b/g, '('+u.toString()+')');
   let fuv = fu.replace(/\bv\b/g, '('+v.toString()+')');
   //console.log(fuv);
   return parseFloat(Algebrite.float(fuv));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
 
-
-var surface_num = 0;
-var surfaces = [{ // from K3DSurf
-       x : "(2+cos(u))*cos(v)",
-       y : "(2+cos(u))*sin(v)",
-       z : "sin(u)",
-       umin : 0,
-       umax : 2*Math.PI,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'torus',
-},{
-       x : "cos(u) / (sqrt(2) + sin(v))",
-       y : "1 / (sqrt(2) + cos(v))",
-       z : "sin(u) / (sqrt(2) + sin(v))",
-       umin : 0,
-       umax : 2*Math.PI,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'limpet_torus',
-},{
-       x : " cos(u)*cos(v)+sin((sin(u)+1)*2*PI) ",
-       y : " 4*sin(u) ",
-       z : "cos(u)*sin(v)+cos((sin(u)+1)*2*PI) ",
-       umin : -Math.PI/2,
-       umax : Math.PI/2,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'pseudosphere',
-},{
-       x : "cos(u)*cos(v)*sin(u)",
-       y : "sin(u)*sin(v)*sin(u)",
-       z : "sin(u)*sin(v)*cos(u)",
-       umin : -Math.PI/2,
-       umax : 0,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'sphere_7',
-},{
-       x : "cos(u)*cos(v)",
-       y : "sin(u)*sin(v)*cos(v)",
-       z : "cos(u)*sin(v)",
-       umin : -Math.PI/2,
-       umax : Math.PI/2,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'sphere_3',
-},{
-       x : "cos(u)*sin(2*v)",
-       y : "sin(v)",
-       z : "sin(u)*sin(2*v)",
-       umin : 0,
-       umax : 2*Math.PI,
-       unum : 50,
-       vmin : -Math.PI/2,
-       vmax : Math.PI/2,
-       vnum : 50,
-       name : 'eight',
-},{
-       x : "cos(u) *(3  *cos(v) - cos(3  *v))",
-       y : "3  *sin(v) - sin(3 * v)",
-       z : "sin(u)  *(3  *cos(v) - cos(3 * v))",
-       umin : 0,
-       umax : 2*Math.PI,
-       unum : 50,
-       vmin : -Math.PI/2,
-       vmax : Math.PI/2,
-       vnum : 50,
-       name : 'kidney',
-},{
-       x : "sin(u) / (sqrt(2) + cos(v))",
-       y : "cos(u-2*PI/3) / (sqrt(2) + cos(v-2*PI/3))",
-       z : "sin(u+2*PI/3) / (sqrt(2) + cos(v+2*PI/3))",
-       umin : -Math.PI,
-       umax : Math.PI,
-       unum : 50,
-       vmin : -Math.PI,
-       vmax : Math.PI,
-       vnum : 50,
-       name : 'triaxial_hexatorus',
-},{
-       x : "sin(v/2)* sin(u) + cos(v/2) *sin(2* u)",
-       y : "(2 + cos(v/2)* sin(u) - sin(v/2)* sin(2 *u))* cos(v)",
-       z : "(2 + cos(v/2)* sin(u) - sin(v/2)* sin(2 *u))* sin(v)",
-       umin : 0,
-       umax : 2*Math.PI,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'klein_2',
-},{
-       x : "cos(u+v)/(sqrt(2.)+cos(v-u))",
-       y : "sin(v-u)/(sqrt(2.)+cos(v-u))",
-       z : "sin(u+v)/(sqrt(2.)+cos(v-u))",
-       umin : 0,
-       umax : Math.PI,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'cliffordtorus',
-},{
-       x : "2/3* (cos(u)* cos(2*v) + sqrt(2)* sin(u)* cos(v))* cos(u) / (sqrt(2) - sin(2*u)* sin(3*v))",
-       y : "sqrt(2)* cos(u)* cos(u) / (sqrt(2) - sin(2*u)* sin(3*v))",
-       z : "2/3* (cos(u)* sin(2*v) - sqrt(2)* sin(u)* sin(v))* cos(u) / (sqrt(2) - sin(2*u)* sin(3*v))",
-       umin : 0,
-       umax : Math.PI,
-       unum : 40,
-       vmin : 0,
-       vmax : Math.PI,
-       vnum : 40,
-       name : 'boy',
-},{
-       x : "(2 + cos(u))*(v/3 - sin(v))",
-       y : "(2 + cos(u + 2*PI / 3))*(cos(v) - 1) ",
-       z : "(2 + cos(u - 2*PI / 3))*(cos(v) - 1) ",
-       umin : -Math.PI,
-       umax : Math.PI,
-       unum : 40,
-       vmin : -2*Math.PI,
-       vmax : 2*Math.PI,
-       vnum : 40,
-       name : 'bent_horns',
-},{
-       x : "(2 + sin(u) *sin(v)) *sin(3*v/2)",
-       y : "cos(u) *sin(v) + 2 *v/PI - 2",
-       z : "(2 + sin(u) *sin(v)) *cos(3*v/2)",
-       umin : 0,
-       umax : 2*Math.PI,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       type : 'croissant',
-},{
-       x : "1/2*sin(2*u)*sin(v)^2",
-       y : "1/2*cos(u)*sin(2*v)",
-       z : "1/2*sin(u)*cos(2*v)",
-       umin : 0,
-       umax : Math.PI,
-       unum : 50,
-       vmin : -Math.PI/2,
-       vmax : Math.PI/2,
-       vnum : 50,
-       name : 'roman',
-},{
-       x : "(sin(2 * u) * cos(v) * cos(v))",
-       y : "(cos(u) * sin(2 * v))",
-       z : "(sin(u) * sin(2 * v))",
-       umin : -Math.PI/2,
-       umax : Math.PI/2,
-       unum : 50,
-       vmin : -Math.PI/2,
-       vmax : Math.PI/2,
-       vnum : 50,
-       name : 'steiner',
-},{
-       x : "(sin(u) * sin(2 * v) / 2)",
-       y : "(cos(2 * u) * cos(v) * cos(v))",
-       z : "(sin(2 * u) * cos(v) * cos(v))",
-       umin : -Math.PI/2,
-       umax : Math.PI/2,
-       unum : 50,
-       vmin : -Math.PI/2,
-       vmax : Math.PI/2,
-       vnum : 50,
-       name : 'crosscap',
-},{
-       x : "cos(u)*cos(v)*sin(u)",
-       y : "sin(u)*sin(v)*sin(u)",
-       z : "cos(u)*sin(v)*cos(u)",
-       umin : -Math.PI/2,
-       umax : 0,
-       unum : 50,
-       vmin : 0,
-       vmax : 2*Math.PI,
-       vnum : 50,
-       name : 'sphere_8',
-},]
 
 	class Surface {
   

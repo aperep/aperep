@@ -12,6 +12,10 @@ body {
   font-weight: bold;
 }
 
+textarea {
+  width: 100%;
+}
+
 #info {
 	position: absolute;
 	top: 10px;
@@ -36,6 +40,10 @@ body {
 	opacity: 0.8;
 }
 
+#container {
+  position: absolute;
+  z-index: -2;
+}
 
 #functions {
   width:47%; 
@@ -47,8 +55,17 @@ body {
   width:47%; 
   float: left;
   margin:10px;
+  text-align: justify;
 }
 
+#explanation li {
+  text-align: justify;  
+}
+
+#explanation ol {
+     margin-top: 5pt;
+     margin-bottom: 5pt;
+}
 #container {
   float:right;
 }
