@@ -99,7 +99,7 @@ var surfaces = [{ // from K3DSurf
        vmax : 2*Math.PI,
        vnum : 40,
        name : 'klein_2',
-},{
+/*},{
        x : "cos(u+v)/(sqrt(2.)+cos(v-u))",
        y : "sin(v-u)/(sqrt(2.)+cos(v-u))",
        z : "sin(u+v)/(sqrt(2.)+cos(v-u))",
@@ -109,7 +109,7 @@ var surfaces = [{ // from K3DSurf
        vmin : 0,
        vmax : 2*Math.PI,
        vnum : 40,
-       name : 'cliffordtorus',
+       name : 'cliffordtorus',*/
 },{
        x : "2/3* (cos(u)* cos(2*v) + sqrt(2)* sin(u)* cos(v))* cos(u) / (sqrt(2) - sin(2*u)* sin(3*v))",
        y : "sqrt(2)* cos(u)* cos(u) / (sqrt(2) - sin(2*u)* sin(3*v))",
