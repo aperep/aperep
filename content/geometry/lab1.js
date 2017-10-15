@@ -8,6 +8,13 @@ var tasks = [
 "кривизне сечения плоскостью, натянутой на векторы e<sub>1</sub> и e<sub>2</sub>+n, где (e<sub>1</sub>,e<sub>2</sub>) - канонический базис, а n - нормаль к поверхности,",
 ];
 
+var resolution = 40;
+
+  function changeResolution()
+  {
+    resolution = $('#resolution').val();
+    initMesh();
+  }
 
    function set_input(name, value) {
 	 $("input[name='"+name+"']").val(value);   
@@ -45,19 +52,37 @@ var tasks = [
     ((prevHash << 5) - prevHash) + currVal.charCodeAt(0), 0));
   }
 
+  function selectSurface() {
+   
+	 surface_num = $('#selectSurface option:selected').val(); //Math.abs((hash >> 6) % surfaces.length);
+	 if(surface_num == "---") {
+	 $('#paramx').html("Выберите поверхность в верхнем меню");
+	 $('#paramy').html("Также можете выбрать детализацию - количество полигонов при отрисовке");
+	 $('#paramz').html("");
+	  return;
+	  }
+	 //console.log(surface_num);
+	 set_input("Поверхность", surfaces[surface_num]['name']);
+	 $('#paramx').html('x = '+ surfaces[surface_num]['x']);
+	 $('#paramy').html('y = '+ surfaces[surface_num]['y']);
+	 $('#paramz').html('z = '+ surfaces[surface_num]['z']);
+  	initMesh();	   
+  }
+
 	 function load_task() {	 
 	 let surname =  $('#surname option:selected').html();
 	 set_input("ФамилияИмя", surname);
 	 let hash = hashCode(surname);
-	 surface_num = Math.abs((hash >> 6) % surfaces.length);
-	 colorfunc_num = (hash % 64) % tasks.length;
 	 //console.log(tasks[colorfunc_num], colorfunc_num, tasks.length);
+	 colorfunc_num = (hash % 64) % tasks.length;
 	 $("#task-func").html(tasks[colorfunc_num]);
 	 set_input("Задание", $('#task-func').html());
-	 console.log(surname + ' hash ' + hash + ' surface ' + surface_num + ' func ' + colorfunc_num);
+	 //console.log(surname + ' hash ' + hash + '\n surface ' + surfaces[surface_num]['name'] + ' func ' + colorfunc_num);
 	 $("input[name='hide_task']").prop( "disabled", false );
-	 $('#paramx').html('x = '+ surfaces[surface_num]['x']);
-	 $('#paramy').html('y = '+ surfaces[surface_num]['y']);
-	 $('#paramz').html('z = '+ surfaces[surface_num]['z']);
-  	initMesh();	 
+	 $("#selectSurface").prop( "disabled", false );
+	 $("#resolution").prop( "disabled", false );
+	 surfaces.forEach(function callback(currentValue, index, array) {
+	   let option = $("<option></option>").html(currentValue['name']).val(index);
+    $("#selectSurface").append(option);
+    });
 	 }

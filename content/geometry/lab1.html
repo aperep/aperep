@@ -28,28 +28,40 @@
     <option value="---">Фамилия Имя</option>
   </select>
     <input name="hide_task" value="Показать задание" onclick="toggleTask();" type="button" disabled> 
+  <select onchange="selectSurface()" id="selectSurface" disabled>
+    <option value="---">Поверхность</option>
+  </select>
+  <select onchange="changeResolution()" id="resolution" disabled>
+    <option value="40">Детализация</option>
+    <option value="10">10х10</option>
+    <option value="20">20х20</option>
+    <option value="30">30х30</option>
+    <option value="40">40х40</option>
+    <option value="50">50х50</option>
+  </select>
   </div>
 
    <div id="functions" class="hidden">
     <div> 
-      <span id="paramx"> x = ( 2+cos(u))*cos(v)</span> <br/>
-      <span id="paramy"> y = ( 2+cos(u))*sin(v)</span> <br/>
-      <span id="paramz"> z = sin(u) </span>
+      <span id="paramx"> Выберите поверхность в верхнем меню </span> <br/>
+      <span id="paramy"> Также можете выбрать детализацию - количество полигонов при отрисовке </span> <br/>
+      <span id="paramz"> </span>
     </div>
     <textarea id="terminal" name="terminal" rows="6" cols="80" style="width:100%;margin-bottom:-5px;">
 # Поле для решения. Ниже пример задания функции, раскрашивающей поверхность:
 jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ] # нахождение матрицы Якоби в точке (u,v)
 q = jacobian[1][1] # взятие первого элемента матрицы
 f = d(q, u) # взятие производной</textarea>
-   <div style="max-height: 200px; overflow:auto;"> Ответ: f=  <span id="colorfunc"> u+v </span> </div>
+   <div style="max-height: 200px; overflow:auto;"> Ответ: f =  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
-    <input name="execute" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
+    <input name="redraw" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
    <form id="contact-form" action="https://formspree.io/perepeal+mipt-lab@gmail.com" method="POST">
 	 <input type="hidden" name="Группа"  value="---" />
 	 <input type="hidden" name="ФамилияИмя"  value="---" />
 	 <input type="hidden" name="Задание"  value="---" />
-	 <input type="hidden" name="Функция"  value="---" />
 	 <input type="hidden" name="Решение"  value="---" />
+	 <input type="hidden" name="Поверхность"  value="---" />
+	 <input type="hidden" name="Функция"  value="---" />
    <input type="hidden" name="_language" value="ru" />
 	 <textarea cols="80" rows="2" type="text" placeholder="Поле для комментариев" name="Комментарий" style="margin-top:5pt;"></textarea>
 	 <br/>
@@ -69,8 +81,8 @@ f = d(q, u) # взятие производной</textarea>
      <li>	 введите её в формате Algebrite в поле пересчёта f  </li>
      <li>	 и вставьте код Вашего вычисления в поле комментария с указанием использованной системы.   </li>
 	   </ol>
-	     
-	   Положительные значения функции на поверхности окрашиваются в красный цвет, отрицательные - в синий. 
+	   Проверьте Ваш код на двух-трёх поверхностях и остановитесь на наиболее, на Ваш взгляд, интересной и с по возможности короткой формулой f (в пределах 20-40 строчек). Перед отправкой решения убедитесь, что функция f пересчитана для текущей поверхности. <br/>
+	   Положительные значения функции на поверхности окрашивают её в красный цвет, отрицательные - в синий. 
    По техническим вопросам обращайтесь в <a href="https://t.me/joinchat/CODPNEIo_NoMrfk43Rb0Ww">telegram-чат</a> либо на почту  <a href="mailto:a@perep.ru">a@perep.ru</a>. 
    </div>
     
@@ -115,6 +127,7 @@ f = d(q, u) # взятие производной</textarea>
         }
         catch (err) {
           var errDesc = err;
+          console.log("Error " + errDesc);
           $('#colorfunc').html('<h4>Ошибка!<\/h4><code>' + errDesc + '<\/code>')
         }
     }    
@@ -139,7 +152,13 @@ f = d(q, u) # взятие производной</textarea>
   let fu = f.replace(/\bu\b/g, '('+u.toString()+')');
   let fuv = fu.replace(/\bv\b/g, '('+v.toString()+')');
   //console.log(fuv);
-  return parseFloat(Algebrite.float(fuv));} <!--  (Math.cos(u)*Math.sin(v))/1 -->
+  try {
+    var result = parseFloat(Algebrite.float(fuv));
+  } catch (err) {
+             var errDesc = err;
+          console.log("Error " + errDesc);
+  }
+  return result;}
 
 
 	class Surface {
@@ -148,10 +167,10 @@ f = d(q, u) # взятие производной</textarea>
   constructor() {
       var umin = surfaces[surface_num]['umin'];
       var umax = surfaces[surface_num]['umax'];
-      var unum = surfaces[surface_num]['unum'];
+      var unum =  resolution; //surfaces[surface_num]['unum'];
       var vmin = surfaces[surface_num]['vmin'];
       var vmax = surfaces[surface_num]['vmax'];
-      var vnum = surfaces[surface_num]['vnum'];
+      var vnum = resolution; //surfaces[surface_num]['vnum'];
       var func = surfaces[surface_num]['func'];
       this.x = Parser.parse(surfaces[surface_num]['x']).toJSFunction( ['u','v'] );
       this.y = Parser.parse(surfaces[surface_num]['y']).toJSFunction( ['u','v'] );
