@@ -12,4 +12,7 @@ topics = [
 
 # Курс по геометрии и компьютерным приложениям
 
+[Основной сайт курса](https://nvbogachev.netlify.com/teaching/gcs/)
 ## [Первая лабораторная работа](/geometry/lab1)
+
+[Спецсеминар по геометрии]({{< ref "teaching/mipt-geom.md" >}})
