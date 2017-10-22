@@ -64,8 +64,9 @@ f = d(q, u) # взятие производной</textarea>
 	 <input type="hidden" name="Функция"  value="---" />
    <input type="hidden" name="_language" value="ru" />
 	 <textarea cols="80" rows="2" type="text" placeholder="Поле для комментариев" name="Комментарий" style="margin-top:5pt;"></textarea>
-	 <br/>
- 	 <input class="submit" type="submit" value="Отправить решение" />
+	 <br/> 
+ 	 <input class="submit" type="submit" value="Отправить решение" /> <br/> 
+ 	 Перед отправкой убедитесь, что поверхность выбрана и функция пересчитана.
    </form>
    </div>
     
@@ -123,7 +124,7 @@ f = d(q, u) # взятие производной</textarea>
           console.log(result);
           $('#colorfunc').html(Algebrite.run('f'));
         	 set_input("Функция", $('#colorfunc').html());
-        	 set_input("Решение", $('#terminal').html());
+        	 set_input("Решение", $('#terminal').val());
         }
         catch (err) {
           var errDesc = err;
@@ -131,6 +132,9 @@ f = d(q, u) # взятие производной</textarea>
           $('#colorfunc').html('<h4>Ошибка!<\/h4><code>' + errDesc + '<\/code>')
         }
     }    
+    $("#terminal").on('input',function(e){
+          	 set_input("Решение", e.target.value);
+  });
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
@@ -381,6 +385,7 @@ var s;
 			let vertexQuantity = {};
 			if (value !== "Shaded") {
 				useBasicMaterial = true;
+						  if(mesh == undefined) {alert('Выберите поверхность.');}
 				for (let v of mesh.vertices) {
           if ((value === "colorfunc") || (value === undefined)) {
 						vertexQuantity[v] = s.color(v);
