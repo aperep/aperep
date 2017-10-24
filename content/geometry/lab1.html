@@ -39,7 +39,9 @@
     <option value="40">40х40</option>
     <option value="50">50х50</option>
   </select>
+    <input name="load" id="load" value="Загрузить из кэша" type="button"> 
   </div>
+
 
    <div id="functions" class="hidden">
     <div> 
@@ -103,10 +105,32 @@ f = d(q, u) # взятие производной</textarea>
 	
 	
 
-<script src="../algebrite/jquery.min.js"></script>
-<script src="../algebrite/algebrite.bundle-for-browser.js"></script>
+<script src="../jquery.min.js"></script>
+<script src="../formcache.min.js"></script>
+<script src="../algebrite.bundle-for-browser.js"></script>
 
 	<script type="text/javascript">//&#x25B6;
+
+  
+   $('#contact-form').formcache();
+
+  $("#load").click(function () {
+   let group = get_input('Группа');
+   let surname = get_input('ФамилияИмя');
+   let task = get_input('Задание');
+   let solution = get_input('Решение');
+   let surface = get_input('Поверхность');
+   let comment = get_input('Комментарий');
+   
+   //if (group != '--') {$('#group').val(group); load_students();}
+   //if (surname != '--') {$('#surname').val(surname); load_task();}
+   //if (surface != '--') { $('#selectSurface').val(surface); selectSurface();}
+   $('#terminal').val(solution);
+   $('#comment').val(comment);   
+   $('#load').remove();
+   if($('#explanation').hasClass('hidden')) toggleTask();
+  });
+
 	    function execute () {
         try {
           var textToBeExecuted = $('#terminal').val();
@@ -132,9 +156,15 @@ f = d(q, u) # взятие производной</textarea>
           $('#colorfunc').html('<h4>Ошибка!<\/h4><code>' + errDesc + '<\/code>')
         }
     }    
+    
     $("#terminal").on('input',function(e){
           	 set_input("Решение", e.target.value);
-  });
+          	    $('#load').remove();
+    });
+    $("#terminal").on('input',function(e){
+          	 set_input("Решение", e.target.value);
+          	    $('#load').remove();
+    });
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>

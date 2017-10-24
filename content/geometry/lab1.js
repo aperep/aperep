@@ -19,11 +19,17 @@ var resolution = 40;
    function set_input(name, value) {
 	 $("input[name='"+name+"']").val(value);   
    }
+
+
+  function get_input(name) {
+	return $("input[name='"+name+"']").val();   
+  }
+  
    
 	 function toggleTask() {	 
       $('#explanation').toggleClass('hidden');
       $('#functions').toggleClass('hidden');
-      $('#students input').val($('#explanation').hasClass('hidden') ? "Показать задание" :"Спрятать задание");
+      $('#students input[name="hide_task"]').val($('#explanation').hasClass('hidden') ? "Показать задание" :"Спрятать задание");
 	 }
 
 	 function load_students() {	 
@@ -75,10 +81,10 @@ var resolution = 40;
 	 let hash = hashCode(surname);
 	 //console.log(tasks[colorfunc_num], colorfunc_num, tasks.length);
 	 colorfunc_num = (hash % 64) % tasks.length;
-	 surface_num = Math.abs((hash >> 6) % surfaces.length);
+	 //surface_num = Math.abs((hash >> 6) % surfaces.length);
 	 $("#task-func").html(tasks[colorfunc_num]);
 	 set_input("Задание", $('#task-func').html());
-	 console.log(surname + ' hash ' + hash + '\n surface ' + surfaces[surface_num]['name'] + ' func ' + colorfunc_num);
+	 //console.log(surname + ' hash ' + hash + '\n surface ' + surfaces[surface_num]['name'] + ' func ' + colorfunc_num);
 	 $("input[name='hide_task']").prop( "disabled", false );
 	 $("#selectSurface").prop( "disabled", false );
 	 $("#resolution").prop( "disabled", false );
