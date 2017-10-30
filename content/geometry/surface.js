@@ -67,8 +67,8 @@ math.import({
           return result;}
      
      } else {
-       let deriv = ['x','y','z'].map(x => derivatives(x, surfaces[surface_num]['x'], 2)).join('');
-              //console.log(deriv);
+       let deriv = ['x','y','z'].map(x => derivatives(x, surfaces[surface_num][x], 2)).join('');
+              console.log(deriv);
 
 
        let textToExecute = deriv + $('#terminal').val() + '\nf';
