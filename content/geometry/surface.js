@@ -67,8 +67,9 @@ math.import({
           return result;}
      
      } else {
-       let deriv = ['x','y','z'].map(x => derivatives(x, surfaces[surface_num][x], 2)).join('');
-              console.log(deriv);
+       let deriv = surfaces[surface_num]['derivatives'];
+       if (deriv==undefined)  deriv =  ['x','y','z'].map(x => derivatives(x, surfaces[surface_num][x], 2)).join('');
+             // console.log(deriv);
 
 
        let textToExecute = deriv + $('#terminal').val() + '\nf';
@@ -81,10 +82,18 @@ math.import({
   }
 }
 
-function derivatives(label, formula, depth) {
+function derivatives(label, formula_, depth) {
     if(depth<0) return '';
+    let formula = math.simplify(formula_).toString();
     return label+'='+formula+'\n'
       +derivatives(label+'u', math.derivative(formula,"u"), depth-1)
       +derivatives(label+'v', math.derivative(formula,"v"), depth-1);
   };
 
+
+function get_derivatives() {
+  surfaces.forEach(function callback(currentValue, index, array) {
+    currentValue['derivatives'] = ['x','y','z'].map(x => derivatives(x, currentValue[x], 2)).join('');
+  });
+  console.log(JSON.stringify(surfaces));
+}
