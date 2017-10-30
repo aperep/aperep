@@ -7,21 +7,21 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" href="../style/main.css">
 	
-	<script src="../students.js"></script>
-	<script src="../lab1.js"></script>
-	<script src="../surfaces.js"></script>
+  <script src="../jquery.min.js"></script>
+  <script src="../formcache.min.js"></script>
 
 </head>
 
 <body>
   <div id="students" style="margin: 5pt;">
   Выберите своё задание:
-  <select onchange="load_students()" id="group">
+  
+	 <select onchange="load_students()" id="group">
     <option value="---">Группа</option>
-    <option value="595">594</option>
-    <option value="599">595</option>
-    <option value="599">596</option>
-    <option value="595">597</option>
+    <option value="594">594</option>
+    <option value="595">595</option>
+    <option value="596">596</option>
+    <option value="597">597</option>
     <option value="599">599</option>
   </select>
   <select onchange="load_task()" id="surname" disabled>
@@ -39,7 +39,7 @@
     <option value="40">40х40</option>
     <option value="50">50х50</option>
   </select>
-    <input name="load" id="load" value="Загрузить из кэша" type="button"> 
+    <input name="load" id="load" value="Загрузить сохранённую версию" type="button"> 
   </div>
 
 
@@ -47,20 +47,33 @@
     <div> 
       <span id="paramx"> Выберите поверхность в верхнем меню </span> <br/>
       <span id="paramy"> Также можете выбрать детализацию - количество полигонов при отрисовке </span> <br/>
-      <span id="paramz"> </span>
+      <span id="paramz"> </span><br/>
+  Выберите систему 
+  <select id="CAS">
+    <option value="algebrite">Algebrite</option>
+    <option value="mathjs">math.js</option>
+  </select>
+      
     </div>
     <textarea id="terminal" name="terminal" rows="6" cols="80" style="width:100%;margin-bottom:-5px;">
-# Поле для решения. Ниже пример задания функции, раскрашивающей поверхность:
+# Поле для решения. Ниже пример задания функции в Algebrite, раскрашивающей поверхность:
 jacobian = [ d(x, [u,v]), d(y, [u,v]), d(z, [u,v]) ] # нахождение матрицы Якоби в точке (u,v)
 q = jacobian[1][1] # взятие первого элемента матрицы
-f = d(q, u) # взятие производной</textarea>
-   <div style="max-height: 200px; overflow:auto;"> Ответ: f =  <span id="colorfunc"> u+v </span> </div>
+f = d(q, u) # взятие производной
+# Пример для math.js:
+jacobian2 = [ [xu, xv], [yu, yv], [zu, zv] ] 
+q2 = jacobian2[1,1]
+f=q2
+</textarea>
+  <div id="mathjs-info" class="hidden"> Итоговую функцию обозначьте через "f". В math.js недоступно взятие производной, поэтому добавлены первые и вторые частные производные координатных функций. Первые производные обозначены через xu, xv, yu, yv, zu, zv, вторые - через xuu, xuv, и т.д.</div>
+   <div id="answer" style="max-height: 200px; overflow:auto;"> Ответ: f =  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
     <input name="redraw" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
    <form id="contact-form" action="https://formspree.io/perepeal+mipt-lab@gmail.com" method="POST">
 	 <input type="hidden" name="Группа"  value="---" />
 	 <input type="hidden" name="ФамилияИмя"  value="---" />
 	 <input type="hidden" name="Задание"  value="---" />
+	 <input type="hidden" name="CAS"  value="algebrite" />
 	 <input type="hidden" name="Решение"  value="---" />
 	 <input type="hidden" name="Поверхность"  value="---" />
    <input type="hidden" name="_language" value="ru" />
@@ -77,7 +90,7 @@ f = d(q, u) # взятие производной</textarea>
    Поверхность r(u,v)=(x,y,z) задана формулами слева. <br/>
    Вам требуется найти функцию f, равную <span id="task-func">(здесь будет задание)</span>
    в данной точке. <br/>
-   Вычислите f по x,y,z в поле слева с помощью системы <a href="http://algebrite.org/">Algebrite</a> (список доступных функций <a href="http://algebrite.org/docs/1.0.0/reference.html">здесь</a>)
+   Вычислите f по x,y,z в поле слева с помощью либо  системы <a href="http://algebrite.org/">Algebrite</a> (<a href="http://algebrite.org/docs/1.0.0/reference.html">список функций</a>), либо <a href="http://mathjs.org/">Math.js</a> (<a href="http://mathjs.org/docs/expressions/syntax.html">синтаксис</a>, <a href="http://mathjs.org/docs/reference/functions.html">список функций</a>, их использовать без "math."),
 	   либо
 	   <ol>
 	   <li>  найдите формулу функции f в удобной Вам системе компьютерной алгебры,</li>
@@ -105,66 +118,16 @@ f = d(q, u) # взятие производной</textarea>
 	
 	
 
-<script src="../jquery.min.js"></script>
-<script src="../formcache.min.js"></script>
 <script src="../algebrite.bundle-for-browser.js"></script>
+<script src="../math.min.js" type="text/javascript"></script>
+<script src="../surfaces.js"></script>
+<script src="../students.js"></script>
+<script src="../lab1.js"></script>
+<script src="../execute.js"></script>
 
 	<script type="text/javascript">//&#x25B6;
 
-  
-   $('#contact-form').formcache();
 
-  $("#load").click(function () {
-   let group = get_input('Группа');
-   let surname = get_input('ФамилияИмя');
-   let task = get_input('Задание');
-   let solution = get_input('Решение');
-   let surface = get_input('Поверхность');
-   let comment = get_input('Комментарий');
-   
-   //if (group != '--') {$('#group').val(group); load_students();}
-   //if (surname != '--') {$('#surname').val(surname); load_task();}
-   //if (surface != '--') { $('#selectSurface').val(surface); selectSurface();}
-   $('#terminal').val(solution);
-   $('#comment').val(comment);   
-   $('#load').remove();
-   if($('#explanation').hasClass('hidden')) toggleTask();
-  });
-
-	    function execute () {
-        try {
-          var textToBeExecuted = $('#terminal').val();
-          var result;
-          if (/Algebrite\.[a-z]/.test(textToBeExecuted) || /;[ \t]*$/.test(textToBeExecuted)) {
-            result = eval(textToBeExecuted);
-          }
-          else {
-            Algebrite.run("clearall\nPI=pi");
-            Algebrite.run($('#paramx').html());
-            Algebrite.run($('#paramy').html());
-            Algebrite.run($('#paramz').html());
-            result = Algebrite.run(textToBeExecuted);
-          }
-          console.log(result);
-          $('#colorfunc').html(Algebrite.run('f'));
-        	 set_input("Функция", $('#colorfunc').html());
-        	 set_input("Решение", $('#terminal').val());
-        }
-        catch (err) {
-          var errDesc = err;
-          console.log("Error " + errDesc);
-          $('#colorfunc').html('<h4>Ошибка!<\/h4><code>' + errDesc + '<\/code>')
-        }
-    }    
-    
-    $("#terminal").on('input',function(e){
-          	 set_input("Решение", e.target.value);
-          	    $('#load').remove();
-    });
-    $("#terminal").on('input',function(e){
-          	 set_input("Решение", e.target.value);
-          	    $('#load').remove();
-    });
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
@@ -181,443 +144,9 @@ f = d(q, u) # взятие производной</textarea>
 	<script src="../utils/meshio.js"></script>
 	<script src="../utils/colormap.js"></script>
 	<script src="../parser.js"></script>
-	<script type="text/javascript">
-  var colorfunc = (f, u, v) => { 
-  let fu = f.replace(/\bu\b/g, '('+u.toString()+')');
-  let fuv = fu.replace(/\bv\b/g, '('+v.toString()+')');
-  //console.log(fuv);
-  try {
-    var result = parseFloat(Algebrite.float(fuv));
-  } catch (err) {
-             var errDesc = err;
-          console.log("Error " + errDesc);
-  }
-  return result;}
+  <script src="../scene.js"></script>
 
-
-	class Surface {
-  
-  
-  constructor() {
-      var umin = surfaces[surface_num]['umin'];
-      var umax = surfaces[surface_num]['umax'];
-      var unum =  resolution; //surfaces[surface_num]['unum'];
-      var vmin = surfaces[surface_num]['vmin'];
-      var vmax = surfaces[surface_num]['vmax'];
-      var vnum = resolution; //surfaces[surface_num]['vnum'];
-      var func = surfaces[surface_num]['func'];
-      this.x = Parser.parse(surfaces[surface_num]['x']).toJSFunction( ['u','v'] );
-      this.y = Parser.parse(surfaces[surface_num]['y']).toJSFunction( ['u','v'] );
-      this.z = Parser.parse(surfaces[surface_num]['z']).toJSFunction( ['u','v'] );
-      this.coords = (u, v) => new Vector(this.x(u,v), this.y(u,v), this.z(u,v));
-		this.vertices = [];
-		this.faces = [];
-		this.u = [];
-		this.v = [];
-    let u = iu => umin + (umax-umin)*iu/(unum-1);
-    let v = iv => vmin + (vmax-vmin)*iv/(vnum-1);
-    let index = (iu, iv) => iu*vnum + iv;
-    let push_square = (x1, y1) => {
-        let x2 = (x1+1)%unum;
-        let y2 = (y1+1)%vnum;
-				this.faces.push(index(x1, y1));
-				this.faces.push(index(x1, y2));
-				this.faces.push(index(x2, y2));
-				this.faces.push(index(x1, y1));
-				this.faces.push(index(x2, y2));
-				this.faces.push(index(x2, y1));
-    }
-		for (let iu = 0; iu < unum; iu++) {
-				for (let iv = 0; iv < vnum; iv++) {
-				  this.vertices.push(this.coords( u(iu), v(iv) ));
-				  this.u.push(u(iu));
-				  this.v.push(v(iv));
-					push_square(iu, iv);
-				}
-				
-		}
-		
-  }
-  
-  get mesh() {
-    return {
-			"v": this.vertices,
-			"f": this.faces
-		};
-  }
-
-  color(v) {
- 		 let f = $('#colorfunc').html(); 
-     return colorfunc (f, this.u[v.index], this.v[v.index]);
-  }
-}
-var s;
-  
-		if (!Detector.webgl) Detector.addGetWebGLMessage();
-
-		let input = document.getElementById("fileInput");
-		let renderer = undefined;
-		let camera = undefined;
-		let controls = undefined;
-		let showNormals = false;
-		let useBasicMaterial = false;
-		let showWireframe = false;
-		let scene = undefined;
-		let threeMesh = undefined;
-		let threeGeometry = undefined;
-		let normalsHelper = undefined;
-		let wireframe = undefined;
-		let materialSettings = {
-			vertexColors: THREE.VertexColors,
-			polygonOffset: true,
-			polygonOffsetFactor: 1,
-			polygonOffsetUnits: 1,
-			side: THREE.DoubleSide
-		};
-
-		let positions = undefined;
-		let uvs = undefined;
-		let normals = undefined;
-		let colors = undefined;
-		let indices = undefined;
-
-		let mesh = undefined;
-		let geometry = undefined;
-
-
-		const ORANGE = new Vector(1.0, 0.5, 0.0);
-		let guiFields = {
-			"Load Mesh": function() {
-				input.click();
-			},
-			"Export Mesh": function() {
-				exportFile(MeshIO.writeOBJ({
-					"v": positions,
-					"vt": uvs,
-					"vn": normals,
-					"f": indices
-				}));
-			},
-			"Plot": "Shaded",
-			"Normals": "Equally Weighted",
-			"Show Normals": showNormals,
-			"Show Wireframe": showWireframe
-		};
-
-		init();
-		animate();
-
-		function init() {
-			let container = document.createElement("div");
-			container.id="container";
-			document.body.appendChild(container);
-
-			initRenderer(container);
-			//initGUI();
-			initCamera();
-			initScene();
-			initLights();
-			//initMesh();
-			initControls();
-			addEventListeners();
-		}
-
-		function initRenderer(container) {
-			renderer = new THREE.WebGLRenderer({
-				antialias: true
-			});
-			renderer.setPixelRatio(window.devicePiuelRatio);
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			container.appendChild(renderer.domElement);
-		}
-
-		function initGUI() {
-			let gui = new dat.GUI();
-
-			let io = gui.addFolder("IO");
-			io.add(guiFields, "Load Mesh");
-			io.add(guiFields, "Export Mesh");
-			io.open();
-
-			gui.add(guiFields, "Normals", ["Equally Weighted", "Tip Angle Weighted", "Sphere Inscribed",
-				"Area Weighted (AN)", "Mean Curvature (HN)", "Gauss Curvature (KN)"
-			]).onChange(updateNormals).listen();
-			gui.add(guiFields, "Plot", ["Shaded", "A", "H", "K", "κ max", "κ min", "colorfunc"]).onChange(updatePlot).listen();
-			gui.add(guiFields, "Show Normals").onChange(toggleNormals).listen();
-			gui.add(guiFields, "Show Wireframe").onChange(toggleWireframe).listen();
-		}
-
-		window.onload = function() {
-			input.addEventListener("change", function(e) {
-				let file = input.files[0];
-				filename = file.name;
-
-				if (filename.endsWith(".obj")) {
-					let reader = new FileReader();
-					reader.onload = function(e) {
-						initMesh(reader.result);
-					}
-
-					reader.onerror = function(e) {
-						alert("Unable to load OBJ file");
-					}
-
-					reader.readAsText(file);
-
-				} else {
-					alert("Please load an OBJ file");
-				}
-			});
-		}
-
-		function exportFile(text) {
-			let element = document.createElement("a");
-			element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
-			element.setAttribute("download", filename);
-
-			element.style.display = "none";
-			document.body.appendChild(element);
-
-			element.click();
-
-			document.body.removeChild(element);
-		}
-
-		function updateNormals(value) {
-			for (let v of mesh.vertices) {
-				let i = v.index;
-
-				let normal;
-				if (value === "Equally Weighted") normal = geometry.vertexNormalEquallyWeighted(v);
-				else if (value === "Tip Angle Weighted") normal = geometry.vertexNormalAngleWeighted(v);
-				else if (value === "Sphere Inscribed") normal = geometry.vertexNormalSphereInscribed(v);
-				else if (value === "Area Weighted (AN)") normal = geometry.vertexNormalAreaWeighted(v);
-				else if (value === "Mean Curvature (HN)") normal = geometry.vertexNormalMeanCurvature(v);
-				else if (value === "Gauss Curvature (KN)") normal = geometry.vertexNormalGaussCurvature(v);
-
-				normals[3 * i + 0] = normal.x;
-				normals[3 * i + 1] = normal.y;
-				normals[3 * i + 2] = normal.z;
-			}
-
-			threeGeometry.attributes.normal.needsUpdate = true;
-			normalsHelper.update();
-		}
-
-		function toggleNormals(checked) {
-			showNormals = checked;
-			if (showNormals) scene.add(normalsHelper);
-			else scene.remove(normalsHelper);
-		}
-
-		function updatePlot(value) {
-			let max = 0;
-			let vertexQuantity = {};
-			if (value !== "Shaded") {
-				useBasicMaterial = true;
-						  if(mesh == undefined) {alert('Выберите поверхность.');}
-				for (let v of mesh.vertices) {
-          if ((value === "colorfunc") || (value === undefined)) {
-						vertexQuantity[v] = s.color(v);
-					} else if (value === "A") {
-						vertexQuantity[v] = geometry.circumcentricDualArea(v);
-
-					} else if (value === "K") {
-						vertexQuantity[v] = geometry.scalarGaussCurvature(v);
-
-					} else if (value === "H") {
-						vertexQuantity[v] = geometry.scalarMeanCurvature(v);
-
-					} else {
-						let area = geometry.barycentricDualArea(v);
-						let [k1, k2] = geometry.principalCurvatures(v);
-						if (value === "κ min") vertexQuantity[v] = k1 * area;
-						else vertexQuantity[v] = k2 * area;
-					}
-
-					max = Math.max(Math.abs(vertexQuantity[v]), max);
-				}
-
-			} else {
-				useBasicMaterial = false;
-			}
-
-			max = Math.min(Math.PI / 8, max);
-
-			for (let v of mesh.vertices) {
-				let i = v.index;
-
-				let color = value === "Shaded" ? ORANGE : colormap(vertexQuantity[v], -max, max, seismic);
-				colors[3 * i + 0] = color.x;
-				colors[3 * i + 1] = color.y;
-				colors[3 * i + 2] = color.z;
-			}
-
-			if (useBasicMaterial) threeMesh.material = new THREE.MeshBasicMaterial(materialSettings);
-			else threeMesh.material = new THREE.MeshPhongMaterial(materialSettings);
-			threeGeometry.attributes.color.needsUpdate = true;
-		}
-
-		function toggleWireframe(checked) {
-			showWireframe = checked;
-			if (showWireframe) threeMesh.add(wireframe);
-			else threeMesh.remove(wireframe);
-		}
-
-		function initCamera() {
-			const fov = 45.0;
-			const aspect = window.innerWidth / window.innerHeight;
-			const near = 0.1;
-			const far = 1000;
-			const eyeZ = 3.5;
-
-			camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-			camera.position.z = eyeZ;
-		}
-
-		function initScene() {
-			scene = new THREE.Scene();
-			scene.background = new THREE.Color(0xffffff);
-		}
-
-		function initLights() {
-			let ambient = new THREE.AmbientLight(0xffffff, 0.35);
-			camera.add(ambient);
-
-			let point = new THREE.PointLight(0xffffff);
-			point.position.set(2, 20, 15);
-			camera.add(point);
-
-			scene.add(camera);
-		}
-
-		function initMesh(text) {
-		  if (text == undefined) {
-		    s = new Surface();
-  			var polygonSoup = s.mesh;
-  		}
-  		else {
-   			var polygonSoup = MeshIO.readOBJ(text);
-  		}
-			mesh = new Mesh();
-			if (mesh.build(polygonSoup)) {
-				// remove any previously loaded mesh from scene
-				scene.remove(threeMesh);
-				scene.remove(normalsHelper);
-
-				// create geometry object
-				geometry = new Geometry(mesh, polygonSoup["v"]);
-
-				// create a THREE.js mesh (and geometry) object
-				initThreeMesh();
-				scene.add(threeMesh);
-
-				updateNormals(guiFields["Normals"]);
-
-				// update metadata
-				let element = document.getElementById("meta");
-				element.textContent = "Total Angle Defect: " + (geometry.totalAngleDefect() / Math.PI).toFixed(2) + "π";
-				element.textContent += "\nEuler Characteristic: " + mesh.eulerCharacteristic();
-
-			} else {
-				alert("Unable to build halfedge mesh");
-			}
-		}
-
-		function initThreeMesh() {
-			// create geometry object
-			threeGeometry = new THREE.BufferGeometry();
-
-			// fill position, normal and color buffers
-			let V = mesh.vertices.length;
-			positions = new Float32Array(V * 3);
-			normals = new Float32Array(V * 3);
-			colors = new Float32Array(V * 3);
-			for (let v of mesh.vertices) {
-				let i = v.index;
-
-				let position = geometry.positions[v];
-				positions[3 * i + 0] = position.x;
-				positions[3 * i + 1] = position.y;
-				positions[3 * i + 2] = position.z;
-
-				let normal = geometry.vertexNormalEquallyWeighted(v);
-				normals[3 * i + 0] = normal.x;
-				normals[3 * i + 1] = normal.y;
-				normals[3 * i + 2] = normal.z;
-
-				colors[3 * i + 0] = ORANGE.x;
-				colors[3 * i + 1] = ORANGE.y;
-				colors[3 * i + 2] = ORANGE.z;
-			}
-
-			// fill index buffer
-			let F = mesh.faces.length;
-			indices = new Uint32Array(F * 3);
-			for (let f of mesh.faces) {
-				let i = 0;
-				for (let v of f.adjacentVertices()) {
-					indices[3 * f.index + i++] = v.index;
-				}
-			}
-
-			// set geometry
-			threeGeometry.setIndex(new THREE.BufferAttribute(indices, 1));
-			threeGeometry.addAttribute("position", new THREE.BufferAttribute(positions, 3));
-			threeGeometry.addAttribute("normal", new THREE.BufferAttribute(normals, 3));
-			threeGeometry.addAttribute("color", new THREE.BufferAttribute(colors, 3));
-
-			// create material
-			let threeMaterial = new THREE.MeshPhongMaterial(materialSettings);
-
-			// create wireframe
-			wireframe = new THREE.LineSegments();
-			wireframe.geometry = new THREE.WireframeGeometry(threeGeometry);
-			wireframe.material = new THREE.LineBasicMaterial({
-				color: 0x000000,
-				linewidth: 0.75
-			});
-
-			// create mesh
-			threeMesh = new THREE.Mesh(threeGeometry, threeMaterial);
-
-			// create normals helper
-			normalsHelper = new THREE.VertexNormalsHelper(threeMesh, 0.02, 0x0000ff, 0.75);
-
-			// toggle normals, curvature and wireframe
-			toggleNormals(showNormals);
-			updatePlot(guiFields["Plot"]);
-			toggleWireframe(showWireframe);
-		}
-
-		function initControls() {
-			controls = new THREE.TrackballControls(camera, renderer.domElement);
-			controls.rotateSpeed = 5.0;
-		}
-
-		function addEventListeners() {
-			window.addEventListener("resize", onWindowResize, false);
-		}
-
-		function onWindowResize() {
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			controls.handleResize();
-			render();
-		}
-
-		function animate() {
-			requestAnimationFrame(animate);
-			controls.update();
-			render();
-		}
-
-		function render() {
-			renderer.render(scene, camera);
-		}
-	</script>
+  <script src="../surface.js"></script>
 </body>
 
 </html>

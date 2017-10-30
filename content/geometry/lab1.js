@@ -32,6 +32,23 @@ var resolution = 40;
       $('#students input[name="hide_task"]').val($('#explanation').hasClass('hidden') ? "Показать задание" :"Спрятать задание");
 	 }
 
+  $('#CAS').change( function () {
+    set_input('CAS', $(this).val());
+    //console.log('cas change triggered');
+    if ($(this).val()=='algebrite') {
+      $("input[name='execute']").removeClass('hidden');
+      $("#answer").removeClass('hidden');    
+      $("#mathjs-info").addClass('hidden');
+    } else {
+      $("input[name='execute']").addClass('hidden');
+      $("#answer").addClass('hidden');
+      $("#mathjs-info").removeClass('hidden');
+      $('#colorfunc').html('');
+      $('#contact-form input[name="Функция"]').val('Без формулы');
+    }
+    
+  });
+
 	 function load_students() {	 
 	 var surnameList = $('#surname');
 	 surnameList.children().each(function() {if (this.value != '---') this.remove();});
@@ -93,4 +110,40 @@ var resolution = 40;
     $("#selectSurface").append(option);
     });
 	 }
+
+  
+   $('#contact-form').formcache();
+   //$('#identity-form').formcache();
+
+  $("#load").click(function () {
+   let group = get_input('Группа');
+   let surname = get_input('ФамилияИмя');
+   let task = get_input('Задание');
+   let CAS = get_input('CAS');
+   let solution = get_input('Решение');
+   let surface = get_input('Поверхность');
+   let comment = get_input('Комментарий');
+   let func = get_input('Функция');
+   $('select[id="group"] option[value="'+group+'"]').prop('selected',true);
+   if(group != '---') load_students();
+   $('select[id="surname"] option[value="'+surname+'"]').prop('selected',true);
+   if (surname != '---') load_task();
+   let surface_num = $('#selectSurface option:contains("'+surface+'")').val();
+   //console.log(surface_num);
+   $('select[id="selectSurface"] option[value="'+surface_num+'"]').prop('selected',true);
+   if (surface != '---')  selectSurface();
+   $('#CAS').val(CAS);  
+   $( "#CAS" ).trigger("change" );
+   $('#terminal').val(solution);
+   $('#comment').val(comment);   
+   $('#colorfunc').html(func);
+   $('#load').remove();
+   if($('#explanation').hasClass('hidden')) toggleTask();
+  });
+
+    $("#terminal").on('input',function(e){
+          	 set_input("Решение", e.target.value);
+          	    $('#load').remove();
+    });
+
 
