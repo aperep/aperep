@@ -65,7 +65,7 @@ jacobian2 = [ [xu, xv], [yu, yv], [zu, zv] ]
 q2 = jacobian2[1,1]
 f=q2
 </textarea>
-  <div id="mathjs-info" class="hidden"> Итоговую функцию обозначьте через "f". В math.js недоступно взятие производной, поэтому добавлены первые и вторые частные производные координатных функций. Первые производные обозначены через xu, xv, yu, yv, zu, zv, вторые - через xuu, xuv, и т.д.</div>
+  <div id="mathjs-info" class="hidden"> Итоговую функцию обозначьте через "f". В math.js численные операции, поэтому недоступны derivative и simplify. Первые и вторые частные производные координатных функций доступны через следующие переменные: первые - xu, xv, yu, yv, zu, zv, вторые - через xuu, xuv, и т.д.</div>
    <div id="answer" style="max-height: 200px; overflow:auto;"> Ответ: f =  <span id="colorfunc"> u+v </span> </div>
     <input name="execute" value="Пересчитать функцию цвета f" onclick="execute();" type="button"> 
     <input name="redraw" value="Перекрасить поверхность" onclick="updatePlot();" type="button"> 
