@@ -10,11 +10,11 @@ tags = [
 aliases=["mipt-geom"]
 +++
 
-## [Темы и задачи семинара](plan)
+## [Темы семинара](plan)
 
 Семинар проходит по субботам с 16:00 по 18:00 в ауд. 522 ГК, [объявление](/teaching/mipt-geom/spezsem-geom.docx).
 
 ## Задачи:
-  - [21 октября](/teaching/mipt-geom/spiets-gieom-21.pdf)
+  - [21 октября, аффинная геометрия](/teaching/mipt-geom/spiets-gieom-21.pdf)
 
 
