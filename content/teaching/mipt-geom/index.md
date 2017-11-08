@@ -18,5 +18,7 @@ aliases=["mipt-geom"]
   - [21 октября, аффинная геометрия](/teaching/mipt-geom/spiets-gieom-21.pdf)
   
 ## [Литература](literature)
+1. [Э.Б. Винберг](http://halgebra.math.msu.su/wiki/doku.php/staff:vinberg), *Курс алгебры*
+1. [А.Л. Городенцев](http://gorod.bogomolov-lab.ru/index_rus.html), *Геометрия*
 
 
