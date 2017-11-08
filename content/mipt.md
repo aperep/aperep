@@ -15,4 +15,4 @@ topics = [
 [Основной сайт курса](https://nvbogachev.netlify.com/teaching/gcs/)
 ## [Первая лабораторная работа](/geometry/lab1)
 
-# [Спецсеминар по геометрии]({{< ref "teaching/mipt-geom.md" >}})
+# [Спецсеминар по геометрии](/teaching/mipt-geom/)
