@@ -12,7 +12,7 @@ aliases=["mipt-geom"]
 
 ## [Темы семинара](plan)
 
-Семинар проходит по субботам с 16:00 по 18:00 в ауд. 522 ГК, [объявление](/teaching/mipt-geom/spezsem-geom.docx).
+Семинар проходит по субботам с 16:00 по 18:00 в ауд. 522 ГК, [объявление](/teaching/mipt-geom/spezsem-geom-poster-2017.pdf).
 
 ## Задачи:
   - [21 октября, аффинная геометрия](/teaching/mipt-geom/spiets-gieom-21.pdf)
