@@ -16,5 +16,7 @@ aliases=["mipt-geom"]
 
 ## Задачи:
   - [21 октября, аффинная геометрия](/teaching/mipt-geom/spiets-gieom-21.pdf)
+  
+## [Литература](literature)
 
 
