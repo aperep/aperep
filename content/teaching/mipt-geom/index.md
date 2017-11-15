@@ -16,7 +16,7 @@ aliases=["mipt-geom"]
 
 ## Задачи:
   - [21 октября, аффинная геометрия](/teaching/mipt-geom/spiets-gieom-21.pdf)
-  
+  - [11 ноября, аффинные преобразования](/teaching/mipt-geom/spiets-gieom-11.pdf)
 ## [Литература](literature)
 1. [Э.Б. Винберг](http://halgebra.math.msu.su/wiki/doku.php/staff:vinberg), [*Курс алгебры*](https://books.google.ru/books?id=P_DGBgAAQBAJ&printsec=frontcover&hl=ru).
 1. [А.Л. Городенцев](http://gorod.bogomolov-lab.ru/index_rus.html), [*Геометрия*](http://gorod.bogomolov-lab.ru/ps/stud/geom_ru/1617/list.html).
