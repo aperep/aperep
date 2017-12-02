@@ -16,8 +16,10 @@ aliases=["mipt-geom"]
 Занятия 25 ноября **не будет**. О ближайшем занятии объявим дополнительно.
 
 ## Задачи:
-  - [21 октября, аффинная геометрия](/teaching/mipt-geom/spiets-gieom-21.pdf)
-  - [11 ноября, аффинные преобразования](/teaching/mipt-geom/spiets-gieom-11.pdf)
+  - [21 октября, аффинная геометрия](/teaching/mipt-geom/2017-10-21.pdf)
+  - [11 ноября, аффинные преобразования](/teaching/mipt-geom/2017-11-11.pdf)
+  - [2 декабря, проективная геометрия](/teaching/mipt-geom/2017-12-02.pdf)
+  - [Общий список](/teaching/mipt-geom/all.pdf)
 
 ## [Литература](literature)
 1. [Э.Б. Винберг](http://halgebra.math.msu.su/wiki/doku.php/staff:vinberg), [*Курс алгебры*]( https://books.google.ru/books?id=P_DGBgAAQBAJ&printsec=frontcover&hl=ru).

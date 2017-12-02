@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Вторая лабораторная</title>
+	<link rel="stylesheet" href="../style/main.css">
+	<link rel="stylesheet" href="../overlay.css">
+  <script src="../jquery.min.js"></script>
+  <script src="../formcache.min.js"></script>
+
+</head>
+
+<body>
+	<div id="info">
+		<input type="file" id="fileInput" style="visibility:hidden">
+	</div>
+	<div id="info">
+		<h2>Лапласиан</h2>
+		<div id="meta">Загрузка...</div>
+	</div>
+	<div id="logo">
+		<a href="https://geometrycollective.github.io/geometry-processing-js/" target="_blank">
+			<img src="../imgs/logo.png" width="80" height="80" border="0">
+		</a>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.js"></script>
+	<script src="../libs/detector.js"></script>
+	<script src="../libs/trackball-controls.js"></script>
+	<script src="../linear-algebra/linear-algebra-asm.js"></script>
+	<script src="../linear-algebra/vector.js"></script>
+	<script src="../linear-algebra/emscripten-memory-manager.js"></script>
+	<script src="../linear-algebra/dense-matrix.js"></script>
+	<script src="../linear-algebra/sparse-matrix.js"></script>
+	<script src="../core/vertex.js"></script>
+	<script src="../core/edge.js"></script>
+	<script src="../core/face.js"></script>
+	<script src="../core/halfedge.js"></script>
+	<script src="../core/corner.js"></script>
+	<script src="../core/mesh.js"></script>
+	<script src="../core/geometry.js"></script>
+	<script src="../input/bunny.js"></script>
+	<script src="../utils/meshio.js"></script>
+	<script src="../mean-curvature-flow.js"></script>
+	<script src="../laplacian.js"></script>
+
+	<script src="../numeric-1.2.6.min.js"></script>
+
+  <script src="../students.js"></script>
+	<script src="../lab2-fields.js"></script>
+	<script src="../lab2-main.js"></script>
+	
+	<div id="overlay"><div>	
+	<button onclick="$('#overlay').hide();">Закрыть</button>
+	<button onclick="$('#overlay').hide(); integrate();">Закрыть и преобразовать</button>
+
+   <form id="contact-form" action="https://formspree.io/perepeal+mipt-lab@gmail.com" method="POST">
+   Вам требуется реализовать <span id="Задание"> <b>Авторизуйтесь для получения задания</b> </span>
+	 <input type="hidden" name="Группа"  value="---" />
+	 <input type="hidden" name="ФамилияИмя"  value="---" />
+	 <input type="hidden" name="Задание"  value="---" disabled/>
+	 <input type="hidden" name="Решение"  value="---" />
+	 <input type="hidden" name="Поверхность"  value="---" />
+   <input type="hidden" name="_language" value="ru" />
+    <textarea id="terminal" name="terminal" rows="30" cols="160" style="width:100%;margin-bottom:-5px;">
+// Поле для решения в javascript с использованием numeric.js
+		// build the flow and mass matrices
+		let vertices = this.geometry.mesh.vertices;
+		let V = vertices.length;
+		let M = this.geometry.massMatrix(this.vertexIndex);
+		let F = this.buildFlowOperator(M, h);
+
+		// считываем координаты вершин
+		let f0 = DenseMatrix.zeros(V, 3);
+		for (let v of vertices) {
+			let i = this.vertexIndex[v];
+			let p = this.geometry.positions[v];
+
+			f0.set(p.x, i, 0);
+			f0.set(p.y, i, 1);
+			f0.set(p.z, i, 2);
+		}
+
+		let rhs = M.timesDense(f0);
+
+		// solve linear system (M - hA)fh = Mf0
+		let llt = F.chol();
+		let fh = llt.solvePositiveDefinite(rhs);
+
+		// обновляем координаты вершин
+		for (let v of vertices) {
+			let i = this.vertexIndex[v];
+			let p = this.geometry.positions[v];
+
+			p.x = fh.get(i, 0);
+			p.y = fh.get(i, 1);
+			p.z = fh.get(i, 2);
+		}
+
+		// центровка поверхности
+		normalize(this.geometry.positions, vertices, false);
+</textarea>
+	 <textarea cols="80" rows="2" type="text" placeholder="Поле для комментариев" name="Комментарий" style="margin-top:5pt;"></textarea>
+	 <input type="hidden" name="Функция"  value="---" />
+	 <br/> 
+ 	 Перед отправкой убедитесь в работоспособности кода
+ 	 <input class="submit" type="submit" value="Отправить решение" /> <br/> 
+   </form>	
+	</div></div>
+</body>
+
+</html>
