@@ -20,6 +20,7 @@ aliases=["mipt-geom"]
   - [2 декабря, проективная геометрия](/teaching/mipt-geom/2017-12-02.pdf)
   - [Общий список за 2017 год](/teaching/mipt-geom/all.pdf)
   - [3 марта, многогранники](/teaching/mipt-geom/2018-03-03.pdf)
+  - [10 марта, выпуклые множества](/teaching/mipt-geom/2018-03-10.pdf)
 
 [Бланк личного листка.](/teaching/mipt-geom/listok.pdf)
 
