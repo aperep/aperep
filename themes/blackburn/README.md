@@ -4,7 +4,7 @@ Blackburn is a clear and responsive theme for [Hugo](//gohugo.io).
 
 ## Overview
 
-* Based on Yahoo's [Pure CSS] (http://purecss.io/) (v1.0.0)
+* Based on Yahoo's [Pure CSS](http://purecss.io/) (v1.0.0)
 * Fixed sidebar with social links:
   * Twitter
   * GNU social
@@ -93,6 +93,10 @@ paginate = 10
   # (relative to /static folder)
   custom_css = ["css/my.css"]
   custom_js = ["js/my.js"]
+
+  [params.piwikAnalytics]
+    siteid = 2
+    piwikroot = "//analytics.example.com/"
 
 [menu]
   # Shown in the side menu.
@@ -198,6 +202,19 @@ paginate = 10
 ```
 
 ## Shortcodes
+
+### pure_table
+```
+{{< pure_table
+  "columnName1|columnName2|...|columnName99"
+  "dataValue1|dataValue2|...|dataValue99"
+  "dataValue1|dataValue2|...|dataValue99"
+  "dataValue1|dataValue2|...|dataValue99"
+  "... and so on"
+>}}
+```
+
+where each positional parameter is separated by the vertical bar (i.e., |). The resulting `<table>` is set to have `class="pure-table pure-table-striped"`.
 
 ### fluid_imgs
 

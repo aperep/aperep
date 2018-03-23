@@ -19,29 +19,29 @@ paginate = 10
 [menu]
   # Shown in the side menu.
    [[menu.main]]
-    name = "Home"
+    name = "Главная"
     pre = "<i class='fa fa-home fa-fw'></i>"
-    weight = 0
+    weight = 4
     identifier = "home"
     url = "/"
   [[menu.main]]
-    name = "Ind-groups"
+    name = "Инд-группы"
     pre = "<i class='fa fa-list-ul fa-fw'></i>"
-    weight = 0
+    weight = 2
     identifier = "ind"
     url = "/ind/"
   [[menu.main]]
-    name = "MIPT Teaching"
+    name = "Студентам МФТИ"
     pre = "<i class='fa fa-list-ul fa-fw'></i>"
-    weight = 0
+    weight = 3
     identifier = "mipt"
     url = "/mipt/"
   [[menu.main]]
-    name = "About"
+    name = "Обо мне"
     pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 2
-    identifier = "about"
-    url = "/about/"
+    weight = 1
+    identifier = "me"
+    url = "/me/"
 
 [social]
   # Link your social networking accouns to the side menu
