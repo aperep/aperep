@@ -10,11 +10,9 @@ tags = [
 aliases=["mipt-geom"]
 +++
 
-## [Темы семинара](plan)
+Семинар проходит по субботам в 18:30 в ауд. 419 ГК, [объявление](/mipt/geometry/poster-2017.pdf), [темы семинара](plan).
 
-Семинар проходит по субботам в 18:30 в ауд. 419 ГК, [объявление](/mipt/geometry/poster-2017.pdf).
-
-## Задачи:
+## Задачи
   - [21 октября, аффинная геометрия](/mipt/geometry/2017-10-21.pdf)
   - [11 ноября, аффинные преобразования](/mipt/geometry/2017-11-11.pdf)
   - [2 декабря, проективная геометрия](/mipt/geometry/2017-12-02.pdf)
@@ -25,7 +23,7 @@ aliases=["mipt-geom"]
 
 [Бланк личного листка.](/mipt/geometry/listok.pdf)
 
-## [Литература](literature)
+## Литература
 1. [Э.Б. Винберг](http://halgebra.math.msu.su/wiki/doku.php/staff:vinberg), [*Курс алгебры*]( https://books.google.ru/books?id=P_DGBgAAQBAJ&printsec=frontcover&hl=ru).
 1. [А.Л. Городенцев](http://gorod.bogomolov-lab.ru/index_rus.html), [*Геометрия*](http://gorod.bogomolov-lab.ru/ps/stud/geom_ru/1617/list.html).
 
