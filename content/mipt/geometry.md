@@ -7,7 +7,7 @@ description = ""
 draft = false
 tags = [
 ]
-aliases=["mipt-geom"]
+aliases=["mipt-geom", "teaching/mipt-geom"]
 +++
 
 Семинар проходит по субботам в 18:30 в ауд. 419 ГК, [объявление](/mipt/geometry/poster-2017.pdf), [темы семинара](plan).
