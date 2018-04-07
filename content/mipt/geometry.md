@@ -20,6 +20,7 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
   - [3 марта, многогранники](/mipt/geometry/2018-03-03.pdf)
   - [10 марта, выпуклые множества](/mipt/geometry/2018-03-10.pdf)
   - [17 марта, правильные многогранники и группы симметрий](/mipt/geometry/2018-03-17.pdf)
+  - [7 апреля, геометрия сферы](/mipt/geometry/2018-04-07.pdf)
 
 [Бланк личного листка.](/mipt/geometry/listok.pdf)
 
