@@ -22,6 +22,7 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
   - [17 марта, правильные многогранники и группы симметрий](/mipt/geometry/2018-03-17.pdf)
   - [7 апреля, геометрия сферы](/mipt/geometry/2018-04-07.pdf)
   - [14 апреля, проективная двойственность](/mipt/geometry/2018-04-14.pdf)
+  - [28 апреля, геометрия Лобачевского](/mipt/geometry/2018-04-28.pdf)
   
 
 [Бланк личного листка.](/mipt/geometry/listok.pdf)
@@ -29,5 +30,8 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
 ## Литература
 1. [Э.Б. Винберг](http://halgebra.math.msu.su/wiki/doku.php/staff:vinberg), [*Курс алгебры*]( https://books.google.ru/books?id=P_DGBgAAQBAJ&printsec=frontcover&hl=ru).
 1. [А.Л. Городенцев](http://gorod.bogomolov-lab.ru/index_rus.html), [*Геометрия*](http://gorod.bogomolov-lab.ru/ps/stud/geom_ru/1617/list.html).
-
+1. По геометрии Лобачевского:
+  - Vinberg (ed.), Geometry II: Spaces of Constant Curvature,
+  - Ratcliffe, Foundations of Hyperbolic Manifolds,
+  - Beardon, The Geometry of Discrete Groups.
 
