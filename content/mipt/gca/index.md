@@ -11,7 +11,7 @@ tags = [
 
 Основная страница курса: [осень 2017](https://nvbogachev.netlify.com/teaching/gcs18os/), [весна 2018](https://nvbogachev.netlify.com/teaching/gcs18ve/), [осень 2018](https://nvbogachev.netlify.com/teaching/gcs18f/).
 
-# Материалы  2018/19 учебного года
+# Материалы  2018-2019 учебного года
 ## Семинары
 1. Плоские кривые: [определения](2018-fall/1-definitions.pdf) и [упражнения](2018-fall/1-exercises.pdf).
 
