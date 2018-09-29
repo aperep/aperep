@@ -9,7 +9,7 @@ tags = [
 ]
 +++
 
-Основная страница курса: [осень 2017](https://nvbogachev.netlify.com/teaching/gcs18os/), [весна 2018](https://nvbogachev.netlify.com/teaching/gcs18ve/), [осень 2018](https://nvbogachev.netlify.com/teaching/gcs18f/).
+Основная страница курса: [осень 2017](https://nvbogachev.netlify.com/teaching/gcs17os/), [весна 2018](https://nvbogachev.netlify.com/teaching/gcs18ve/), [осень 2018](https://nvbogachev.netlify.com/teaching/gcs18f/).
 
 # Материалы  2018-2019 учебного года
 ## Семинары
