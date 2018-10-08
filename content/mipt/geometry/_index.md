@@ -10,10 +10,10 @@ tags = [
 aliases=["mipt-geom", "teaching/mipt-geom"]
 +++
 
-Семинар проходит по субботам в 18:30 в ауд. 419 ГК, [объявление](/mipt/geometry/poster-2017.pdf), [темы семинара](plan).
+Семинар проходит по субботам в 18:30 в ауд. 419 ГК, 
 
 ## Темы 2018/19 учебного года (2-6 курсы)
-
+- 8 октября, 
 
 ## Темы 2017/18 учебного года
   - [21 октября, аффинная геометрия](/mipt/geometry/2017-10-21.pdf)
@@ -38,6 +38,8 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
   - Ratcliffe, Foundations of Hyperbolic Manifolds,
   - Beardon, The Geometry of Discrete Groups.
 
+## Архив 2017 года
+[Объявление](/mipt/geometry/poster-2017.pdf), [предварительные темы семинара](plan).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk1NDYxMjQ3XX0=
+eyJoaXN0b3J5IjpbMjAzNDExNTMxOF19
 -->
