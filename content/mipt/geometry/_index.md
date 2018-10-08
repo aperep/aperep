@@ -13,7 +13,7 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
 Семинар проходит по субботам в 18:30 в ауд. 419 ГК, 
 
 ## Темы 2018/19 учебного года (2-6 курсы)
-- 8 октября, 
+- [8 октября, коники и теорема Безу](bezout.pdf)
 
 ## Темы 2017/18 учебного года
   - [21 октября, аффинная геометрия](/mipt/geometry/2017-10-21.pdf)
@@ -41,5 +41,5 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
 ## Архив 2017 года
 [Объявление](/mipt/geometry/poster-2017.pdf), [предварительные темы семинара](plan).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNDExNTMxOF19
+eyJoaXN0b3J5IjpbMTQxNDI0NzQ1MV19
 -->
