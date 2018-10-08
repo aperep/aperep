@@ -41,3 +41,6 @@ tags = [
 2. Алгебро-геометрические коды
 3. Эллиптическая криптография
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTMyMjQ3MzM0XX0=
+-->
