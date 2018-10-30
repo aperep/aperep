@@ -16,6 +16,7 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
 ## Темы 2018/19 учебного года (2-6 курсы)
 - 8 октября: [коники и теорема Безу](bezout.pdf), по М. Риду.
 - 15 октября: [нётеровы кольца и теорема Гильберта о нулях](nullstellensatz.pdf), по М. Риду.
+- 29 октября: [алгебраические группы](algroups.pdf).
 
 ## Темы 2017/18 учебного года
   - [21 октября, аффинная геометрия](/mipt/geometry/2017-10-21.pdf)
@@ -44,6 +45,7 @@ aliases=["mipt-geom", "teaching/mipt-geom"]
   - М. Рид, Алгебраическая геометрия для всех.
   - Дж. Харрис, Алгебраическая геометрия. Начальный курс.
   - Ю. Манин, Введение в теорию схем и квантовые группы.
+  - [Arzhantsev, Algebraic Groups and Invariant Theory](http://halgebra.math.msu.su/staff/arzhan/driver.pdf)
 
 ## Архив 2017 года
 [Объявление](/mipt/geometry/poster-2017.pdf), [предварительные темы семинара](plan).
