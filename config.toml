@@ -4,7 +4,7 @@ title = ""
 languageCode = "ru-ru"
 DefaultContentLanguage = "ru"
 author = "Александр Перепечко"
-canonifyurls = true
+#canonifyurls = true
 paginate = 10 
 
 [indexes]
@@ -51,3 +51,23 @@ paginate = 10
   vk = "perepeal"
   facebook = "perepechko"
   researchgate = "Alexander_Perepechko"
+
+[blackfriday]
+  angledQuotes = true
+  #extensions = ["titleblock"]
+  fractions = false
+  plainIDAnchors = true
+  hrefTargetBlank = true
+  
+  
+  
+  
+[languages]
+  [languages.ru]
+    #title = ""
+    weight = 1
+  [languages.en]
+    #title = ""
+    weight = 2
+    [languages.en.blackfriday]
+      angledQuotes = false
