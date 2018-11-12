@@ -10,6 +10,8 @@ indexes:
   tag: tags
   topic: topics
 
+params:
+  custom_css: ['/css/collapse.css']
 
 social:
   email: a@perep.ru
