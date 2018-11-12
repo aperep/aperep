@@ -26,4 +26,4 @@ tags = [
 
 ## Лабораторные
 1. [Поток кривизны плоской кривой](https://share.cocalc.com/share/26cbe64f-ec14-4685-925f-67f6b606b0ff/practice/curvature-flow/Задание.md?viewer=share)
-2. Дискретные поверхности - ждите анонса!
+2. [Дискретные поверхности](https://repl.it/classroom/invite/1RBjDoe)

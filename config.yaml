@@ -1,0 +1,81 @@
+baseurl: 'http://a.perep.ru/'
+theme: ['blackburn-CoW-modifications', 'blackburn']
+title: ''
+languageCode: ru-ru
+DefaultContentLanguage: ru
+author: Александр Перепечко
+paginate: 10
+
+indexes:
+  tag: tags
+  topic: topics
+
+
+social:
+  email: a@perep.ru
+  vk: perepeal
+  facebook: perepechko
+  researchgate: Alexander_Perepechko
+
+blackfriday:
+  angledQuotes: true
+  fractions: false
+  plainIDAnchors: true
+  hrefTargetBlank: true
+
+languages:
+  ru:
+    weight: 1
+    params:
+      subtitle: Меню слева
+    menu:
+      main:
+        - name: English version
+          pre: <i class='fa fa-language fa-fw'></i>
+          weight: 1
+          identifier: en
+          url: /en/
+        - name: Главная
+          pre: <i class='fa fa-home fa-fw'></i>
+          weight: 4
+          identifier: home
+          url: /
+        - name: Инд-группы
+          pre: <i class='fa fa-list-ul fa-fw'></i>
+          weight: 2
+          identifier: ind
+          url: /ind/
+        - name: Студентам МФТИ
+          pre: <i class='fa fa-list-ul fa-fw'></i>
+          weight: 3
+          identifier: mipt
+          url: /mipt/
+        - name: Обо мне
+          pre: <i class='fa fa-user fa-fw'></i>
+          weight: 1
+          identifier: me
+          url: /me/
+
+  en:
+    weight: 2
+    blackfriday:
+      angledQuotes: false
+    params:
+      subtitle: Look left
+    menu:
+      main:
+        - name: Русская версия
+          pre: <i class='fa fa-language fa-fw'></i>
+          weight: 1
+          identifier: en
+          url: /
+        - name: Home
+          pre: <i class='fa fa-home fa-fw'></i>
+          weight: 4
+          identifier: home
+          url: /en/
+        - name: About me
+          pre: <i class='fa fa-user fa-fw'></i>
+          weight: 2
+          identifier: me
+          url: /en/me/

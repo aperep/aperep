@@ -2,7 +2,7 @@
 topics = [
 ]
 date = "2016-12-07T20:28:41+03:00"
-title = "Александр Перепечко"
+title = "Alexander Perepechko"
 description = ""
 draft = false
 tags = [
@@ -10,7 +10,7 @@ tags = [
 
 +++
 
-Увлечён алгебраической геометрией и развлекательным программированием.
+Passionate with algebraic geometry and intelligent computing.
 [CV](/CV.pdf)
 
 <!---
