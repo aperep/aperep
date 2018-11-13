@@ -2,7 +2,7 @@
 topics = [
 ]
 date = "2016-12-07T20:28:41+03:00"
-title = "Темы и задачи семинара"
+title = "Предварительные темы семинара"
 description = ""
 draft = false
 tags = [

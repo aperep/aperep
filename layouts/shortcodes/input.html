@@ -1,0 +1,6 @@
+{{$file := $.Page.Resources.GetMatch (print (.Get 0) ".md" )}}
+
+<details>
+<summary>{{$file.Title}}</summary>
+{{$file.Content}}
+</details>
