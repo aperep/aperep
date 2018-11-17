@@ -115,6 +115,11 @@ There are also abstracts in Schools-Conferences on Lie Algebras, Algebraic Group
 - Talk *Automorphism groups of affine varieties consisting of algebraic elements*
   - January 2017 Christmas meetings Moscow, Russia 
   - January 2017 Sixth School *Lie Algebras, Algebraic Groups and Invariant Theory* Moscow, Russia
+  - January 2018 Conference "[Polynomial Rings and Affine Algebraic Geometry](https://sites.google.com/view/praag-2018/home)", Tokyo, Japan
+- Talk *Nested automorphism groups*
+  - May 2018 Conference "[Algebraic Geometry - Mariusz Koras in memoriam](https://www.impan.pl/en/activities/banach-center/conferences/18-koras-conference)", Warsaw, Poland
+
+
 
 Mini-courses:
 
