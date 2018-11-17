@@ -85,7 +85,8 @@ Competitions:
 - (with Ivan Arzhantsev and Hendrik Süß) *Infinite transitivity on universal torsors*, **Journal of the London Mathematical Society 89** (2014), no. 3, 762--778.
 - (with Kevin Langlois) *Demazure roots and spherical varieties: the example of horizontal SL(2)-actions*, preprint; arXiv:1406.5744.
 - (with Sergei Kovalenko and Mikhail Zaidenberg) *On automorphism groups of affine surfaces*, **Advanced Studies in Pure Mathematics 75** (2017), Algebraic Varieties and Automorphism Groups, 207--286; arXiv:1511.09051.
-- (with Mateusz Michalek and Hendrik Süß) *Flexible affine cones and flexible coverings*, ; arXiv:1612.01144.
+- (with Mateusz Michałek and Hendrik Süß) *Flexible affine cones and flexible coverings*, **Mathematische Zeitschrift 290** (2018), no. 3-4, 1457-1478, http://doi.org/10.1007/s00209-018-2069-2
+- (with Nikolay Bogachev) *Vinberg's Algorithm for Hyperbolic Lattices*, **Mathematical Notes 103** (2018), no. 5-6, 836-840, http://doi.org/10.1134/S0001434618050164
 
 There are also abstracts in Schools-Conferences on Lie Algebras, Algebraic Groups and Invariant Theory.
 {{< /collapse >}}
