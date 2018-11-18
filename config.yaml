@@ -18,6 +18,8 @@ social:
   vk: perepeal
   facebook: perepechko
   researchgate: Alexander_Perepechko
+  instagram: perepeal
+  twitter: kotokel
 
 blackfriday:
   angledQuotes: true
@@ -29,7 +31,7 @@ languages:
   ru:
     weight: 1
     params:
-      subtitle: Меню слева
+      subtitle: Меню -- слева
     menu:
       main:
         - name: English version
