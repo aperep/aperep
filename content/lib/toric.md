@@ -33,4 +33,6 @@ description = ""
 - https://mathoverflow.net/questions/229844/on-factorization-theorem-of-toric-birational-morphisms
 - http://www.math.purdue.edu/~kmatsuki/Factorization.pdf
 
-
+## Конкретное:
+Хаузен quotient статья - произвольные торсоры
+Кокс рингс первая глава - ку-факториальные особенности дают фактор тора в слое, а худшие - много орбит
