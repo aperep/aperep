@@ -26,6 +26,7 @@ blackfriday:
   fractions: false
   plainIDAnchors: true
   hrefTargetBlank: true
+  extensions: [noEmptyLineBeforeBlock]
 
 languages:
   ru:
