@@ -87,6 +87,7 @@ Competitions:
 - (with Sergei Kovalenko and Mikhail Zaidenberg) *On automorphism groups of affine surfaces*, **Advanced Studies in Pure Mathematics 75** (2017), Algebraic Varieties and Automorphism Groups, 207--286; arXiv:1511.09051.
 - (with Mateusz Michałek and Hendrik Süß) *Flexible affine cones and flexible coverings*, **Mathematische Zeitschrift 290** (2018), no. 3-4, 1457-1478, http://doi.org/10.1007/s00209-018-2069-2
 - (with Nikolay Bogachev) *Vinberg's Algorithm for Hyperbolic Lattices*, **Mathematical Notes 103** (2018), no. 5-6, 836-840, http://doi.org/10.1134/S0001434618050164
+- (with Andriy Regeta) *When is the automorphism group of an affine variety nested?*, preprint, [arXiv:1903.07699](https://arxiv.org/abs/1903.07699)
 
 Alternatively, see my [Publons](https://publons.com/researcher/2939252/alexander-perepechko/) profile.
 There are also abstracts in Schools-Conferences on Lie Algebras, Algebraic Groups and Invariant Theory.
@@ -119,6 +120,9 @@ There are also abstracts in Schools-Conferences on Lie Algebras, Algebraic Group
   - January 2018 Conference "[Polynomial Rings and Affine Algebraic Geometry](https://sites.google.com/view/praag-2018/home)", Tokyo, Japan
 - Talk *Nested automorphism groups*
   - May 2018 Conference "[Algebraic Geometry - Mariusz Koras in memoriam](https://www.impan.pl/en/activities/banach-center/conferences/18-koras-conference)", Warsaw, Poland
+  - November 2018 [59th MIPT Scientific Conference](https://mipt.ru/english/events/59th-mipt-scientific-conference), Moscow, Russia
+  - April 2019 [Vinberg's Seminar on Lie Groups and Invariant Theory](http://halgebra.math.msu.su/Lie/), Moscow, Russia
+  - September 2019 Conference "[Emerging Research in  Algebraic Groups, Motives, and K-Theory](https://sites.google.com/view/agmspb2019/events/emerging-research)", St.Petersburg, Russia
 
 
 
