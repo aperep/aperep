@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.48" />
+  <script src="https://unpkg.com/node-forge@0.7.0/dist/forge.min.js"></script>
+  <title>Генератор номеров билетов для экзамена</title>
+</head>
+
+<body>
+<h1> Генератор номеров билетов для экзамена </h1>
+
+<p>Перед экзаменом зафиксируйте и опубликуйте пронумерованные списки студентов и билетов. Придумайте секретную фразу (бессмысленный набор из 5-10 слов), заполните поля ниже и нажмите кнопку, чтобы сгенерировать билеты. Убедитесь, что при повторном наборе билеты получаются те же.</p>
+<p>После экзамена можно поделиться секретной фразой со студентами, чтобы они самостоятельно на этой страничке могли проверить случайность билетов. Без секретной фразы, даже зная билеты других участников, нельзя восстановить билет другого участника. На данной страничке никакая информация не сохраняется.</p>
+<p> Введите количество студентов: <input type="number" id="students" value='1'></p>
+<p> Введите количество билетов: <input type="number" id="billets" value='1'></p>
+<p> Введите секретную фразу: <input id="phrase"></p>
+<button type="button" onclick="generate()">Сгенерировать</button>
+<div id="answers"></div>
+
+    <script src="script.js"></script>
+</body>
