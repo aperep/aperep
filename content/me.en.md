@@ -175,7 +175,7 @@ Also participated in conferences (not an exhaustive list):
 {{< /collapse >}}
 
 
-
+<!--
 ## Programming and stuff
 {{< collapse >}}
 
@@ -187,3 +187,4 @@ Also participated in conferences (not an exhaustive list):
 {{< collapse >}}
 
 {{< /collapse >}}
+-->
