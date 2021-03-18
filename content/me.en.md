@@ -89,7 +89,7 @@ Competitions:
 - (with Nikolay Bogachev) *Vinberg's Algorithm for Hyperbolic Lattices*, **Mathematical Notes 103** (2018), no. 5-6, 836-840, http://doi.org/10.1134/S0001434618050164
 - (with Andriy Regeta) *When is the automorphism group of an affine variety nested?*, preprint, [arXiv:1903.07699](https://arxiv.org/abs/1903.07699)
 - (with Vsevolod Gubarev) *Injective Rota-Baxter operators of weight zero on F[x]*, preprint, [arXiv:2005.14030](https://arxiv.org/abs/2005.14030) 
-- *Affine cones over cubic surfaces are flexible in codimension one*, **Forum Mathematicum** (2020),  [DOI:10.1515/forum-2020-0191](https://doi.org/10.1515/forum-2020-0191)
+- *Affine cones over cubic surfaces are flexible in codimension one*, **Forum Mathematicum 33** (2021), no. 2, 339--348 [DOI:10.1515/forum-2020-0191](https://doi.org/10.1515/forum-2020-0191)
 
 Alternatively, see my [Publons](https://publons.com/researcher/2939252/alexander-perepechko/) profile.
 There are also abstracts in Schools-Conferences on Lie Algebras, Algebraic Groups and Invariant Theory.
