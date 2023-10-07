@@ -1,7 +1,7 @@
 baseurl: 'http://a.perep.ru/'
 #theme: ['blackburn-CoW-modifications', 'blackburn']
 theme: 'coder'
-title: '/'
+title: 'Perepechko'
 languageCode: ru-ru
 DefaultContentLanguage: ru
 author: Александр Перепечко
@@ -14,11 +14,11 @@ indexes:
 
 params:
   author: Александр Перепечко
-  custom_css: ['/css/collapse.css']
+  #custom_css: ['/css/collapse.css']
   customCSS: []
   colorScheme: "auto"
   commit: "https://github.com/aperep/aperep/"
-  since: 2015
+  since: 2016
   keywords: "blog,math,research,personal"
   description: "Личный сайт"
   info: ["любопытствующий", "математик"]
@@ -71,7 +71,7 @@ languages:
     weight: 1
     languageName: "РУС"
     params:
-      subtitle: Меню -- слева
+      subtitle: (подзаголовок)
     menu:
       main:
         # - name: English version
@@ -84,21 +84,26 @@ languages:
           # weight: 4
           # identifier: home
           # url: /
-        - name: Инд-группы
-          pre: <i class='fa fa-list-ul fa-fw'></i>
-          weight: 2
-          identifier: ind
-          url: /ind/
-        - name: Студентам МФТИ
-          pre: <i class='fa fa-list-ul fa-fw'></i>
-          weight: 3
-          identifier: mipt
-          url: /mipt/
+        # - name: Инд-группы
+          # pre: <i class='fa fa-list-ul fa-fw'></i>
+          # weight: 2
+          # identifier: ind
+          # url: /ind/
+        # - name: Студентам МФТИ
+          # pre: <i class='fa fa-list-ul fa-fw'></i>
+          # weight: 3
+          # identifier: mipt
+          # url: /mipt/
         - name: Обо мне
           pre: <i class='fa fa-user fa-fw'></i>
           weight: 1
           identifier: me
           url: /me/
+        - name: Преподавание
+          pre: <i class='fa fa-user fa-fw'></i>
+          weight: 1
+          identifier: teach
+          url: /teach/
 
   en:
     weight: 2
@@ -119,7 +124,7 @@ languages:
           # weight: 4
           # identifier: home
           # url: /en/
-        - name: About me
+        - name: About
           pre: <i class='fa fa-user fa-fw'></i>
           weight: 2
           identifier: me
