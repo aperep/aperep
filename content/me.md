@@ -21,5 +21,5 @@ Yours, Alexander.
 -->
 
 
-{{% fluid_img "/avatar.jpg" %}}
+![avatar](/avatar.jpg)
 

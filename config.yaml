@@ -1,6 +1,7 @@
 baseurl: 'http://a.perep.ru/'
-theme: ['blackburn-CoW-modifications', 'blackburn']
-title: ''
+#theme: ['blackburn-CoW-modifications', 'blackburn']
+theme: 'coder'
+title: '/'
 languageCode: ru-ru
 DefaultContentLanguage: ru
 author: Александр Перепечко
@@ -12,15 +13,51 @@ indexes:
 
 
 params:
+  author: Александр Перепечко
   custom_css: ['/css/collapse.css']
+  customCSS: []
+  colorScheme: "auto"
+  commit: "https://github.com/aperep/aperep/"
+  since: 2015
+  keywords: "blog,math,research,personal"
+  description: "Личный сайт"
+  info: ["любопытствующий", "математик"]
+  avatarURL: "avatar.jpg"
 
-social:
-  email: a@perep.ru
-  vk: aperep
-  facebook: perepechko
-  researchgate: Alexander_Perepechko
-  instagram: perepeal
-  twitter: kotokel
+
+  
+  social:
+    - name: "Github"
+      icon: "fa fa-2x fa-github"
+      weight: 1
+      url: "https://github.com/aperep/"
+
+    - name: "email"
+      icon: "fa fa-2x fa-envelope"
+      weight: 2
+      url: "mailto:a@perep.ru"
+
+    - name: "VK"
+      icon: "fa fa-2x fa-vk"
+      weight: 3
+      url: "https://vk.com/aperep"
+
+    - name: "Telegram"
+      icon: "fa fa-2x fa-telegram"
+      weight: 4
+      url: "https://t.me/aperep"
+
+    - name: "RSS"
+      icon: "fa fa-2x fa-rss"
+      weight: 5
+      url: "https://a.perep.ru/index.xml"
+      rel: "alternate"
+      type: "application/rss+xml"
+
+    #facebook: perepechko
+    #researchgate: Alexander_Perepechko
+    #instagram: perepeal
+    #twitter: kotokel
 
 blackfriday:
   angledQuotes: true
@@ -32,20 +69,21 @@ blackfriday:
 languages:
   ru:
     weight: 1
+    languageName: "РУС"
     params:
       subtitle: Меню -- слева
     menu:
       main:
-        - name: English version
-          pre: <i class='fa fa-language fa-fw'></i>
-          weight: 1
-          identifier: en
-          url: /en/
-        - name: Главная
-          pre: <i class='fa fa-home fa-fw'></i>
-          weight: 4
-          identifier: home
-          url: /
+        # - name: English version
+          # pre: <i class='fa fa-language fa-fw'></i>
+          # weight: 1
+          # identifier: en
+          # url: /en/
+        # - name: Главная
+          # pre: <i class='fa fa-home fa-fw'></i>
+          # weight: 4
+          # identifier: home
+          # url: /
         - name: Инд-группы
           pre: <i class='fa fa-list-ul fa-fw'></i>
           weight: 2
@@ -64,22 +102,23 @@ languages:
 
   en:
     weight: 2
-    blackfriday:
-      angledQuotes: false
+    languageName: "ENG"
     params:
       subtitle: Look left
+      blackfriday:
+        angledQuotes: false
     menu:
       main:
-        - name: Русская версия
-          pre: <i class='fa fa-language fa-fw'></i>
-          weight: 1
-          identifier: en
-          url: /
-        - name: Home
-          pre: <i class='fa fa-home fa-fw'></i>
-          weight: 4
-          identifier: home
-          url: /en/
+        # - name: Русская версия
+          # pre: <i class='fa fa-language fa-fw'></i>
+          # weight: 1
+          # identifier: en
+          # url: /
+        # - name: Home
+          # pre: <i class='fa fa-home fa-fw'></i>
+          # weight: 4
+          # identifier: home
+          # url: /en/
         - name: About me
           pre: <i class='fa fa-user fa-fw'></i>
           weight: 2
