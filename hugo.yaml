@@ -5,7 +5,7 @@ title: 'Perepechko'
 languageCode: ru-ru
 DefaultContentLanguage: ru
 author: Александр Перепечко
-paginate: 10
+#paginate: 10
 
 indexes:
   tag: tags
@@ -58,6 +58,11 @@ params:
     #researchgate: Alexander_Perepechko
     #instagram: perepeal
     #twitter: kotokel
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 blackfriday:
   angledQuotes: true

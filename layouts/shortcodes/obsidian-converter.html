@@ -1,0 +1,34 @@
+  <form id="urlForm">
+    <label for="obsidianUrl">Enter Obsidian URL:</label>
+    <input type="url" id="obsidianUrl" placeholder="obsidian://example" required>
+    <button type="submit">Transform</button>
+  </form>
+  <p id="result" style="font-weight: bold;"></p>
+  <button onclick="copyToClipboard()">Copy to Clipboard</button>
+
+  <script>
+    window.onload = function () {
+            const query = window.location.hash.substring(1);
+            if (query) {
+                const obsidianUrl = "obsidian://" + query;
+                window.location.href = obsidianUrl;
+            }
+        };
+    document.getElementById('urlForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputUrl = document.getElementById('obsidianUrl').value;
+      const outputDiv = document.getElementById('result');
+      if (inputUrl.startsWith('obsidian://')) {
+        const transformedUrl = inputUrl.replace('obsidian://', 'https://a.perep.ru/obsidian/#');
+        document.getElementById('result').textContent = transformedUrl;
+      } else {
+        document.getElementById('result').textContent = 'Invalid input. Please provide a URL starting with "obsidian://".';
+      }
+    });
+    copyToClipboard = function () {
+      var text = document.getElementById('result').innerHTML;
+      navigator.clipboard.writeText(text);
+      
+      alert('Text copied to clipboard!');
+    }
+  </script>

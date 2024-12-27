@@ -13,13 +13,6 @@ tags = [
 Увлечён алгебраической геометрией и развлекательным программированием.
 [CV](/CV.pdf)
 
-<!---
-My research information is available here:
-<http://www.researchgate.net/profile/Alexander_Perepechko>
-
-Yours, Alexander.
--->
-
 
 ![avatar](/avatar.jpg)
 
