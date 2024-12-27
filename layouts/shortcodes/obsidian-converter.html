@@ -26,7 +26,8 @@
       }
     });
     copyToClipboard = function () {
-      var text = document.getElementById('result').innerHTML;
+      var text = document.getElementById('result').innerText;
+      //text.replace("&amp;", "&");
       navigator.clipboard.writeText(text);
       
       alert('Text copied to clipboard!');
