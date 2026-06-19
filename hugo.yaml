@@ -1,4 +1,4 @@
-baseurl: 'http://a.perep.ru/'
+baseurl: 'https://a.perep.ru/'
 #theme: ['blackburn-CoW-modifications', 'blackburn']
 theme: 'coder'
 title: 'Perepechko'
