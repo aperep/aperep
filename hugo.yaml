@@ -128,3 +128,8 @@ languages:
           weight: 2
           identifier: me
           url: /en/me/
+        - name: Teaching
+          pre: <i class='fa fa-user fa-fw'></i>
+          weight: 3
+          identifier: teach
+          url: /en/teach/
