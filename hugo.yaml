@@ -14,6 +14,7 @@ taxonomies:
 
 params:
   author: Александр Перепечко
+  math: true
   #custom_css: ['/css/collapse.css']
   customCSS: []
   colorScheme: "auto"
