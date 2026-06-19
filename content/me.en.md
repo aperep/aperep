@@ -22,7 +22,7 @@ Yours, Alexander.
 -->
 
 
-![avatar](/avatar.jpg)
+![Alexander Perepechko](/avatar.jpg)
 
 
 # Curriculum Vitae
