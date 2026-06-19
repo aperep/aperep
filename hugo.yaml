@@ -16,6 +16,7 @@ taxonomies:
 params:
   author: Александр Перепечко
   math: true
+  images: ["avatar.jpg"]
   #custom_css: ['/css/collapse.css']
   customCSS: []
   colorScheme: "auto"
