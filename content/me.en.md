@@ -10,7 +10,8 @@ tags = [
 
 +++
 
-Passionate with algebraic geometry and intelligent computing.
+Hi! I'm Alexander — a mathematician, passionate about algebraic geometry and
+intelligent computing.
 [CV](/CV.pdf)
 
 <!---
