@@ -2,12 +2,12 @@ baseurl: 'http://a.perep.ru/'
 #theme: ['blackburn-CoW-modifications', 'blackburn']
 theme: 'coder'
 title: 'Perepechko'
-languageCode: ru-ru
+locale: ru-ru
 DefaultContentLanguage: ru
 author: Александр Перепечко
 #paginate: 10
 
-indexes:
+taxonomies:
   tag: tags
   topic: topics
 
@@ -64,17 +64,10 @@ markup:
     renderer:
       unsafe: true
 
-blackfriday:
-  angledQuotes: true
-  fractions: false
-  plainIDAnchors: true
-  hrefTargetBlank: true
-  extensions: [noEmptyLineBeforeBlock]
-
 languages:
   ru:
     weight: 1
-    languageName: "РУС"
+    label: "РУС"
     params:
       subtitle: (подзаголовок)
     menu:
@@ -112,11 +105,9 @@ languages:
 
   en:
     weight: 2
-    languageName: "ENG"
+    label: "ENG"
     params:
       subtitle: Look left
-      blackfriday:
-        angledQuotes: false
     menu:
       main:
         # - name: Русская версия
