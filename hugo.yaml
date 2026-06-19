@@ -4,6 +4,7 @@ theme: 'coder'
 title: 'Perepechko'
 locale: ru-ru
 DefaultContentLanguage: ru
+enableRobotsTXT: true
 author: Александр Перепечко
 #paginate: 10
 
