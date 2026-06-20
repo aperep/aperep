@@ -1,0 +1,11 @@
+# Netlify build configuration.
+# Pin the Hugo version here so it is version-controlled and overrides any
+# HUGO_VERSION set in the Netlify UI (netlify.toml takes precedence over UI
+# environment variables). Keep this in sync with .tool-versions.
+
+[build]
+  command = "hugo --gc --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.163.3"
