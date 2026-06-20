@@ -1,0 +1,10 @@
+{{/*
+  Theme extension point: extra <head> content.
+  Emit hreflang alternates for pages that have translations (SEO for the
+  bilingual RU/EN site).
+*/}}
+{{- if gt (len .AllTranslations) 1 -}}
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- end }}
+{{- end -}}

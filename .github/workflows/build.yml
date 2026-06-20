@@ -1,0 +1,32 @@
+name: Build
+
+# Validates that the site builds cleanly with the pinned Hugo version.
+# Build-only (no deploy), so it is safe alongside any existing hosting.
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.163.3   # keep in sync with .tool-versions
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialise theme submodule
+        run: git submodule update --init themes/coder
+
+      - name: Setup Hugo (extended)
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Build
+        run: hugo --gc --minify

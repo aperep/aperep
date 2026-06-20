@@ -1,0 +1,5 @@
+{{- /* Project override of the coder theme's custom-icons partial.
+       The site ships a single scalable SVG favicon (static/images/favicon.svg),
+       so we emit only that link and avoid the theme defaults that would 404
+       (PNG icons, apple-touch-icon, site.webmanifest, safari mask icon). */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "/images/favicon.svg" | relURL }}" sizes="any">
